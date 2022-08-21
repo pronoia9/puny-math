@@ -8,7 +8,7 @@ export default function Calculation() {
   return (
     <div className={`display border-radius ${theme}-colors`}>
       <div className='secondDisplay' aria-live='polite'>{calculations}</div>
-      <div className='current' aria-live='polite'><span style={{opacity: 0}}>calc </span>{input}</div>
+      <div className='current' aria-live='polite'><span style={{opacity: 0}}>calc </span>{input || 0}</div>
     </div>
   );
 }

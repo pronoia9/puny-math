@@ -4,7 +4,7 @@ const StateContext = createContext();
 
 export const ContextProvider = ({ children }) => {
   const [theme, setTheme] = useState('dark');
-  const [input, setInput] = useState('0');
+  const [input, setInput] = useState('');
   const [calculations, setCalculations] = useState('');
   const [result, setResult] = useState('');
   const [showResult, setShowResult] = useState(false);
