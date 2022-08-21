@@ -1,0 +1,75 @@
+// Font
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
+
+:root {
+  /* COLORS */
+  // Theme 1
+  .theme-one {
+    // Backgrounds
+    --color-bg-main: hsl(222, 26%, 31%);
+    --color-bg-toggle: hsl(223, 31%, 20%);
+    --color-bg-keypad: hsl(223, 31%, 20%);
+    --color-bg-screen: hsl(224, 36%, 15%);
+    // Keys
+    --color-keys-bg1: hsl(225, 21%, 49%);
+    --color-keys-shadow1: hsl(224, 28%, 35%);
+    --color-keys-bg2: hsl(6, 63%, 50%);
+    --color-keys-shadow2: hsl(6, 70%, 34%);
+    --color-keys-bg3: hsl(30, 25%, 89%);
+    --color-keys-shadow3: hsl(28, 16%, 65%);
+    --color-keys-toggle: hsl(6, 63%, 50%);
+    // Text
+    --color-text-1: hsl(221, 14%, 31%);
+    --color-text-2: hsl(0, 0, 100%);
+    --color-text-3: hsl(0, 0, 100%);
+  }
+
+  // Theme 2
+  .theme-two {
+    // Backgrounds
+    --color-bg-main: hsl(0, 0%, 90%);
+    --color-bg-toggle: hsl(0, 5%, 81%);
+    --color-bg-keypad: hsl(0, 5%, 81%);
+    --color-bg-screen: hsl(0, 0%, 93%);
+    // Keys
+    --color-keys-bg1: hsl(185, 42%, 37%);
+    --color-keys-shadow1: hsl(185, 58%, 25%);
+    --color-keys-bg2: hsl(25, 98%, 40%);
+    --color-keys-shadow2: hsl(25, 99%, 27%);
+    --color-keys-bg3: hsl(45, 7%, 89%);
+    --color-keys-shadow3: hsl(35, 11%, 61%);
+    --color-keys-toggle: hsl(25, 98%, 40%);
+    // Text
+    --color-text-1: hsl(60, 10%, 19%);
+    --color-text-2: hsl(0, 0, 100%);
+    --color-text-3: hsl(0, 0, 100%);
+  }
+
+  // Theme 3
+  .theme-three {
+    // Backgrounds
+    --color-bg-main: hsl(268, 75%, 9%);
+    --color-bg-toggle: hsl(268, 71%, 12%);
+    --color-bg-keypad: hsl(268, 71%, 12%);
+    --color-bg-screen: hsl(268, 71%, 12%);
+    // Keys
+    --color-keys-bg1: hsl(281, 89%, 26%);
+    --color-keys-shadow1: hsl(285, 91%, 52%);
+    --color-keys-bg2: hsl(176, 100%, 44%);
+    --color-keys-shadow2: hsl(177, 92%, 70%);
+    --color-keys-bg3: hsl(268, 47%, 21%);
+    --color-keys-shadow3: hsl(290, 70%, 36%);
+    --color-keys-toggle: hsl(176, 100%, 44%);
+    // Text
+    --color-text-1: hsl(52, 100%, 62%);
+    --color-text-2: hsl(198, 20%, 13%);
+    --color-text-3: hsl(0, 0, 100%);
+  }
+
+  /* TYPOGRAPHY */
+  // Body Copy
+  --font-size: 32px;
+
+  // Font
+  --font: 'League Spartan';
+}
