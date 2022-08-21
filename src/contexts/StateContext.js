@@ -13,26 +13,17 @@ export const ContextProvider = ({ children }) => {
   };
 
   const addInput = (num) => {
-    setInput(`${parseInt(input + num)}`);
+    setInput(`${parseFloat(input + num)}`);
   }
 
-  const decimal = () => { };
-  
-  const addition = () => {
-    setResult(result + input);
+  const addDecimal = () => { 
+    setInput(`${parseFloat(input)}${!input.includes('.') ? '.' : ''}`);
   };
 
-  const subtraction = () => {
-    setResult(result - input);
-  };
-
-  const multiplication = () => {
-    setResult(result * input);
-  };
-
-  const division = () => {
-    setResult(result / input);
-  };
+  const addition = () => { setResult(`${parseInt(result + input)}`); };
+  const subtraction = () => { setResult(`${parseInt(result - input)}`); };
+  const multiplication = () => { setResult(`${parseInt(result * input)}`); };
+  const division = () => { setResult(`${parseInt(result / input)}`); };
 
   const calculate = () => {
     // +, -, x, /, =
@@ -63,7 +54,7 @@ export const ContextProvider = ({ children }) => {
     { button: '8', type: 'number', style: '', click: addInput },
     { button: '9', type: 'number', style: '', click: addInput },
     { button: '0', type: 'number', style: '', click: addInput },
-    { button: '.', type: 'operator', style: '', click: decimal },
+    { button: '.', type: 'operator', style: '', click: addDecimal },
     { button: '+', type: 'operator', style: '', click: addition },
     { button: '-', type: 'operator', style: '', click: subtraction },
     { button: 'x', type: 'operator', style: '', click: multiplication },
