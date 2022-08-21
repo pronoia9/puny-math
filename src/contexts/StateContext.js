@@ -31,18 +31,23 @@ export const ContextProvider = ({ children }) => {
 
   const calculate = (btn) => {
     if (input.length) {
+      setCalculations(`${calculations.length ? ' ' : ''}${input}${btn !== '=' ? ' ' + btn : ''}`);
+      if (result.length) {
+        btn === '=' && console.log(calculations.charAt(calculations.length - 2));
+        // set/calculate result
+        if (btn === '+' || (btn === '=' && calculations.charAt(calculations.length - 2)))
+          setResult(addition());
+        else if (btn === '-' || (btn === '=' && calculations.charAt(calculations.length - 2)))
+          setResult(subtraction());
+        else if (btn === '*' || (btn === '=' && calculations.charAt(calculations.length - 2)))
+          setResult(multiplication());
+        else if (btn === '/' || (btn === '=' && calculations.charAt(calculations.length - 2)))
+          setResult(division());
+      } else setResult(input);
       if (btn === '=') {
         setInput(result || input);
         setShowResult(true);
       } else {
-        setCalculations(`${calculations}${input} ${btn} `);
-        if (result.length) {
-          // set/calculate result
-          if (btn === '+') setResult(addition());
-          else if (btn === '-') setResult(subtraction());
-          else if (btn === '*') setResult(multiplication());
-          else if (btn === '/') setResult(division());
-        } else setResult(input);
         // clear input
         setInput('');
       }
