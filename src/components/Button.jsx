@@ -1,3 +1,3 @@
 export default function Button({ key }) {
-  return <div>Key</div>;
+  return <button className={`btn${key.style}`}>{key.key}</button>;
 }
