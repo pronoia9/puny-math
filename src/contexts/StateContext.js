@@ -1,13 +1,13 @@
 import React, { createContext, useContext, useState } from 'react';
 
 const StateContext = createContext();
+let showResult = false;
 
 export const ContextProvider = ({ children }) => {
   const [theme, setTheme] = useState('dark');
   const [input, setInput] = useState('');
   const [calculations, setCalculations] = useState('');
   const [result, setResult] = useState('');
-  const [showResult, setShowResult] = useState(false);
 
   const themeButtonHandler = (event) => {
     setTheme(event.target.value);
@@ -15,7 +15,8 @@ export const ContextProvider = ({ children }) => {
 
   const addInput = (num) => {
     if (showResult) {
-      setShowResult(false);
+      showResult = false;
+      reset();
       setInput(`${parseFloat(num)}`);
     } else setInput(`${parseFloat(input + num)}`);
   };
@@ -34,7 +35,8 @@ export const ContextProvider = ({ children }) => {
     if (!input) return;
 
     // set calculations
-    setCalculations(`${calculations.length ? calculations + ' ' : ''}${input} ${btn}`);
+    !showResult &&
+      setCalculations(`${calculations.length ? calculations + ' ' : ''}${input}${!showResult ? ' ' + btn : ''}`);
 
     // do calculation and set the new result
     if (result) {
@@ -51,21 +53,13 @@ export const ContextProvider = ({ children }) => {
     else setResult(input);
 
     // clear input
-    setInput('');
+    !showResult ? setInput('') : setInput(result || input);
   };
 
   const getResult = () => {
-    // set calculations 
-    setCalculations(`${calculations.length ? calculations + ' ' : ''}${input}`);
-
+    showResult = true;
     // if theres an input, do calculation with the last operator in calculations string
-    if (input) {
-      console.log(calculations.charAt(calculations.length - 1));
-    }
-    // else just set input to result
-    else setInput(result || input);
-
-    setShowResult(true);
+    if (input) calculate(calculations.charAt(calculations.length - 1));
   };
 
   const reset = () => {
