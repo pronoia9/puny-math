@@ -19,8 +19,8 @@ const keys = [
   { key: 'x', type: 'operator', style: '' },
   { key: '/', type: 'operator', style: '' },
   { key: '=', type: 'operator', style: '' },
-  { key: 'DEL', type: 'operator', style: 'double-size' },
-  { key: 'RESET', type: 'operator', style: 'double-size' },
+  { key: 'DEL', type: 'operator', style: ' double-size' },
+  { key: 'RESET', type: 'operator', style: ' double-size' },
 ];
 
 export const ContextProvider = ({ children }) => {
