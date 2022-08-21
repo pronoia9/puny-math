@@ -64,7 +64,7 @@ export const ContextProvider = ({ children }) => {
   };
 
   const reset = () => {
-    setInput('0');
+    setInput('');
     setCalculations('');
     setResult('');
   };
