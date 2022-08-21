@@ -34,7 +34,7 @@ export const ContextProvider = ({ children }) => {
     if (!input) return;
 
     // set calculations
-    setCalculations(`${calculations.length ? calculations + ' ' : ''}${input}${btn !== '=' ? ' ' + btn : ''}`);
+    setCalculations(`${calculations.length ? calculations + ' ' : ''}${input} ${btn}`);
 
     // do calculation and set the new result
     if (result) {
@@ -55,6 +55,9 @@ export const ContextProvider = ({ children }) => {
   };
 
   const getResult = () => {
+    // set calculations 
+    setCalculations(`${calculations.length ? calculations + ' ' : ''}${input}`);
+
     // if theres an input, do calculation with the last operator in calculations string
     if (input) {
       console.log(calculations.charAt(calculations.length - 1));
