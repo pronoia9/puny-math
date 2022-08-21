@@ -2,59 +2,79 @@ import React, { createContext, useContext, useState } from 'react';
 
 const StateContext = createContext();
 
-const buttons = [
-  { key: '1', type: 'number', style: '' },
-  { key: '2', type: 'number', style: '' },
-  { key: '3', type: 'number', style: '' },
-  { key: '4', type: 'number', style: '' },
-  { key: '5', type: 'number', style: '' },
-  { key: '6', type: 'number', style: '' },
-  { key: '7', type: 'number', style: '' },
-  { key: '8', type: 'number', style: '' },
-  { key: '9', type: 'number', style: '' },
-  { key: '0', type: 'number', style: '' },
-  { key: '.', type: 'operator', style: '' },
-  { key: '+', type: 'operator', style: '' },
-  { key: '-', type: 'operator', style: '' },
-  { key: 'x', type: 'operator', style: '' },
-  { key: '/', type: 'operator', style: '' },
-  { key: '=', type: 'operator', style: '' },
-  { key: 'DEL', type: 'operator', style: ' double-size' },
-  { key: 'RESET', type: 'operator', style: ' double-size' },
-];
-
 export const ContextProvider = ({ children }) => {
   const [theme, setTheme] = useState('dark');
-  const [input, setInput] = useState(0);
+  const [input, setInput] = useState('0');
   const [calculations, setCalculations] = useState('');
   const [result, setResult] = useState('');
 
-  const themeButtonHandler = (event) => { setTheme(event.target.value); };
+  const themeButtonHandler = (event) => {
+    setTheme(event.target.value);
+  };
 
-  const addition = (num) => { setResult(result + num); };
-  const subtraction = (num) => { setResult(result - num); };
-  const multiplication = (num) => { setResult(result * num); };
-  const division = (num) => { setResult(result / num); };
+  const addInput = (num) => {
+    setInput(`${parseInt(input + num)}`);
+  }
+
+  const decimal = () => { };
+  
+  const addition = () => {
+    setResult(result + input);
+  };
+
+  const subtraction = () => {
+    setResult(result - input);
+  };
+
+  const multiplication = () => {
+    setResult(result * input);
+  };
+
+  const division = () => {
+    setResult(result / input);
+  };
 
   const calculate = () => {
     // +, -, x, /, =
-  }
+  };
 
-  const showResult = () => { setInput(result); }
+  const showResult = () => {
+    setInput(result);
+  };
 
-  const clear = () => {
+  const reset = () => {
     setInput(0);
     setCalculations('');
     setResult('');
-  }
+  };
 
-  const del = () => { 
-    if (input.toString().length > 0) setInput(parseInt(input.toString().slice(input.length - 2)));
-   }
+  const del = () => {
+    if (input.length > 0) setInput(input.slice(input.length - 2));
+  };
+
+  const buttons = [
+    { button: '1', type: 'number', style: '', click: addInput },
+    { button: '2', type: 'number', style: '', click: addInput },
+    { button: '3', type: 'number', style: '', click: addInput },
+    { button: '4', type: 'number', style: '', click: addInput },
+    { button: '5', type: 'number', style: '', click: addInput },
+    { button: '6', type: 'number', style: '', click: addInput },
+    { button: '7', type: 'number', style: '', click: addInput },
+    { button: '8', type: 'number', style: '', click: addInput },
+    { button: '9', type: 'number', style: '', click: addInput },
+    { button: '0', type: 'number', style: '', click: addInput },
+    { button: '.', type: 'operator', style: '', click: decimal },
+    { button: '+', type: 'operator', style: '', click: addition },
+    { button: '-', type: 'operator', style: '', click: subtraction },
+    { button: 'x', type: 'operator', style: '', click: multiplication },
+    { button: '/', type: 'operator', style: '', click: division },
+    { button: '=', type: 'operator', style: '', click: calculate },
+    { button: 'DEL', type: 'operator', style: ' double-size', click: del },
+    { button: 'RESET', type: 'operator', style: ' double-size', click: reset },
+  ];
 
   return (
-    <StateContext.Provider
-      value={{ theme, input, calculations, result, buttons, themeButtonHandler, }}>
+    <StateContext.Provider value={{ theme, input, calculations, result, buttons, themeButtonHandler }}>
       {children}
     </StateContext.Provider>
   );
