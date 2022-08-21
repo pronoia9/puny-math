@@ -37,16 +37,13 @@ export const ContextProvider = ({ children }) => {
     // set calculations
     setCalculations(`${calculations.length ? calculations + ' ' : ''}${input}${!showResult ? ' ' + btn : ''}`);
 
-    // do calculation and set the new result
+    // set a variable for res: state update isnt instant and it bugs setInput later when called from getResults()
     let res = result;
+    // do calculation and set the new result
     if (result) {
-      // addition
       if (btn === '+') res = addition();
-      // subtraction
       else if (btn === '-') res = subtraction();
-      // multiplication
       else if (btn === '*') res = multiplication();
-      // division
       else if (btn === '/') res = division();
       setResult(res);
     }
