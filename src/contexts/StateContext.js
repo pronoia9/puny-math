@@ -30,28 +30,39 @@ export const ContextProvider = ({ children }) => {
   const division = () => `${parseFloat(result) / parseFloat(input)}`;
 
   const calculate = (btn) => {
-    if (input.length) {
-      setCalculations(`${calculations.length ? ' ' : ''}${input}${btn !== '=' ? ' ' + btn : ''}`);
-      if (result.length) {
-        btn === '=' && console.log(calculations.charAt(calculations.length - 2));
-        // set/calculate result
-        if (btn === '+' || (btn === '=' && calculations.charAt(calculations.length - 2)))
-          setResult(addition());
-        else if (btn === '-' || (btn === '=' && calculations.charAt(calculations.length - 2)))
-          setResult(subtraction());
-        else if (btn === '*' || (btn === '=' && calculations.charAt(calculations.length - 2)))
-          setResult(multiplication());
-        else if (btn === '/' || (btn === '=' && calculations.charAt(calculations.length - 2)))
-          setResult(division());
-      } else setResult(input);
-      if (btn === '=') {
-        setInput(result || input);
-        setShowResult(true);
-      } else {
-        // clear input
-        setInput('');
-      }
+    // check input
+    if (!input) return;
+
+    // set calculations
+    setCalculations(`${calculations.length ? calculations + ' ' : ''}${input}${btn !== '=' ? ' ' + btn : ''}`);
+
+    // do calculation and set the new result
+    if (result) {
+      // addition
+      if (btn === '+') setResult(addition());
+      // subtraction
+      else if (btn === '-') setResult(subtraction());
+      // multiplication
+      else if (btn === '*') setResult(multiplication());
+      // division
+      else if (btn === '/') setResult(division());
     }
+    // if theres no prev result, set result to input
+    else setResult(input);
+
+    // clear input
+    setInput('');
+  };
+
+  const getResult = () => {
+    // if theres an input, do calculation with the last operator in calculations string
+    if (input) {
+      console.log(calculations.charAt(calculations.length - 1));
+    }
+    // else just set input to result
+    else setInput(result || input);
+
+    setShowResult(true);
   };
 
   const reset = () => {
@@ -82,7 +93,7 @@ export const ContextProvider = ({ children }) => {
     { button: '/', type: 'operator', style: '', click: calculate },
     { button: 'x', type: 'operator', style: '', click: calculate },
     { button: 'RESET', type: 'operator', style: ' double-size', click: reset },
-    { button: '=', type: 'operator', style: ' double-size', click: calculate },
+    { button: '=', type: 'operator', style: ' double-size', click: getResult },
   ];
 
   return (
