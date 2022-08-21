@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useStateContext } from '../contexts/StateContext';
 
-export default function Calculation() {
+export default function Results() {
   const { theme, input, calculations } = useStateContext();
 
   return (

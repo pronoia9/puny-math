@@ -1,5 +1,5 @@
 import Header from './Header';
-import Calculation from './Calculation';
+import Results from './Results';
 import Calculator from './Calculator';
 import './App.scss';
 
@@ -13,7 +13,7 @@ export default function App() {
       <div className='app'>
         <Header />
         <main>
-          <Calculation />
+          <Results />
           <Calculator />
         </main>
       </div>
