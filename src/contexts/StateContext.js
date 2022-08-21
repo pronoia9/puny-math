@@ -35,25 +35,26 @@ export const ContextProvider = ({ children }) => {
     if (!input) return;
 
     // set calculations
-    !showResult &&
-      setCalculations(`${calculations.length ? calculations + ' ' : ''}${input}${!showResult ? ' ' + btn : ''}`);
+    setCalculations(`${calculations.length ? calculations + ' ' : ''}${input}${!showResult ? ' ' + btn : ''}`);
 
     // do calculation and set the new result
+    let res = result;
     if (result) {
       // addition
-      if (btn === '+') setResult(addition());
+      if (btn === '+') res = addition();
       // subtraction
-      else if (btn === '-') setResult(subtraction());
+      else if (btn === '-') res = subtraction();
       // multiplication
-      else if (btn === '*') setResult(multiplication());
+      else if (btn === '*') res = multiplication();
       // division
-      else if (btn === '/') setResult(division());
+      else if (btn === '/') res = division();
+      setResult(res);
     }
     // if theres no prev result, set result to input
     else setResult(input);
 
     // clear input
-    !showResult ? setInput('') : setInput(result || input);
+    setInput(!showResult ? '' : res);
   };
 
   const getResult = () => {
