@@ -7,7 +7,7 @@ export default function Calculator() {
   return (
     <div className='grid border-radius dark-colors'>
       {buttons.map((btn) => (
-        <Button key={btn.key} {...btn} />
+        <Button key={btn.button} {...btn} />
       ))}
     </div>
   );
