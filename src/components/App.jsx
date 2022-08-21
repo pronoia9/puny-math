@@ -1,8 +1,9 @@
 import Header from './Header';
+import Calculation from './Calculation';
+import Calculator from './Calculator';
 import './App.scss';
 
 import { useStateContext } from '../contexts/StateContext';
-import Calculation from './Calculation';
 
 export default function App() {
   const { theme } = useStateContext();
@@ -12,10 +13,8 @@ export default function App() {
       <div className='app'>
         <Header />
         <main>
-          {/* results */}
           <Calculation />
-
-          {/* input */}
+          <Calculator />
         </main>
       </div>
     </div>
