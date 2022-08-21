@@ -16,7 +16,8 @@ export const ContextProvider = ({ children }) => {
   const addInput = (num) => {
     if (showResult) {
       showResult = false;
-      // reset(`${parseFloat(num)}`);
+      reset();
+      setInput(`${parseFloat(num)}`);
     } else setInput(`${parseFloat(input + num)}`);
   };
 
@@ -34,34 +35,43 @@ export const ContextProvider = ({ children }) => {
     if (!input) return;
 
     // set calculations
-    setCalculations(`${calculations.length ? calculations + ' ' : ''}${input}${!showResult ? ' ' + btn : ''}`);
+    setCalculations(`${calculations.length ? calculations + ' ' : ''}${input} ${btn}`);
 
-    // set a variable for res: state update isnt instant and it bugs setInput later when called from getResults()
-    let res = result;
     // do calculation and set the new result
     if (result) {
-      if (btn === '+') res = addition();
-      else if (btn === '-') res = subtraction();
-      else if (btn === '*') res = multiplication();
-      else if (btn === '/') res = division();
-      setResult(res);
+      if (btn === '+') setResult(addition());
+      else if (btn === '-') setResult(subtraction());
+      else if (btn === '*') setResult(multiplication());
+      else if (btn === '/') setResult(division());
     }
     // if theres no prev result, set result to input
     else setResult(input);
 
     // clear input
-    setInput(!showResult ? '' : res);
+    setInput('');
   };
 
   const getResult = () => {
-    showResult = true;
+    if (!input && !result) return;
+
+    // set calculations: if theres no new input, remove the last operation from calcs string and show the result
+    setCalculations(input ? `${calculations.length ? calculations + ' ' : ''}${input}` : calculations.slice(0, calculations.length - 2));
+
+    // set a variable for res: state update isnt instant and it bugs setInput
+    let res = result;
+
     // if theres an input, do calculation with the last operator in calculations string
-    if (input) calculate(calculations.charAt(calculations.length - 1));
-    // if theres no new input, remove the last operation from calcs string and show the result
-    else {
-      setCalculations(calculations.slice(0, calculations.length - 2));
-      setInput(result);
+    if (input && result) {
+      const lastOperation = calculations.charAt(calculations.length - 1);
+      if (lastOperation === '+') res = addition();
+      else if (lastOperation === '-') res = subtraction();
+      else if (lastOperation === '*') res = multiplication();
+      else if (lastOperation === '/') res = division();
+      setResult(res);
     }
+
+    setInput(res || input);
+    showResult = true;
   };
 
   const reset = () => {
@@ -71,7 +81,8 @@ export const ContextProvider = ({ children }) => {
   };
 
   const del = () => {
-    if (!showResult && input.length > 0) setInput(input.slice(0, input.length - 1));
+    if (showResult) reset();
+    else if (input.length > 0) setInput(input.slice(0, input.length - 1));
   };
 
   const buttons = [
