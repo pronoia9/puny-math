@@ -10,6 +10,11 @@ export default function App() {
     <div className={`wrapper ${theme}-colors`}>
       <div className='app'>
         <Header />
+        <main>
+          {/* results */}
+
+          {/* input */}
+        </main>
       </div>
     </div>
   );
