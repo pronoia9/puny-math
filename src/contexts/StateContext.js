@@ -16,7 +16,7 @@ export const ContextProvider = ({ children }) => {
   const addInput = (num) => {
     if (showResult) {
       showResult = false;
-      reset(`${parseFloat(num)}`);
+      // reset(`${parseFloat(num)}`);
     } else setInput(`${parseFloat(input + num)}`);
   };
 
@@ -64,10 +64,10 @@ export const ContextProvider = ({ children }) => {
     }
   };
 
-  const reset = (num = '', calcs = '', res = '') => {
-    setInput(num);
-    setCalculations(calcs);
-    setResult(res);
+  const reset = () => {
+    setInput('');
+    setCalculations('');
+    setResult('');
   };
 
   const del = () => {
