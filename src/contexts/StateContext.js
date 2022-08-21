@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState } from 'react';
 
 const StateContext = createContext();
 
-const keys = [
+const buttons = [
   { key: '1', type: 'number', style: '' },
   { key: '2', type: 'number', style: '' },
   { key: '3', type: 'number', style: '' },
@@ -54,7 +54,7 @@ export const ContextProvider = ({ children }) => {
 
   return (
     <StateContext.Provider
-      value={{ theme, input, calculations, result, keys, themeButtonHandler, }}>
+      value={{ theme, input, calculations, result, buttons, themeButtonHandler, }}>
       {children}
     </StateContext.Provider>
   );
