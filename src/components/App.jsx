@@ -2,6 +2,7 @@ import Header from './Header';
 import './App.scss';
 
 import { useStateContext } from '../contexts/StateContext';
+import Calculation from './Calculation';
 
 export default function App() {
   const { theme } = useStateContext();
@@ -12,6 +13,7 @@ export default function App() {
         <Header />
         <main>
           {/* results */}
+          <Calculation />
 
           {/* input */}
         </main>
