@@ -16,8 +16,7 @@ export const ContextProvider = ({ children }) => {
   const addInput = (num) => {
     if (showResult) {
       showResult = false;
-      reset();
-      setInput(`${parseFloat(num)}`);
+      reset(`${parseFloat(num)}`);
     } else setInput(`${parseFloat(input + num)}`);
   };
 
@@ -58,12 +57,17 @@ export const ContextProvider = ({ children }) => {
     showResult = true;
     // if theres an input, do calculation with the last operator in calculations string
     if (input) calculate(calculations.charAt(calculations.length - 1));
+    // if theres no new input, remove the last operation from calcs string and show the result
+    else {
+      setCalculations(calculations.slice(0, calculations.length - 2));
+      setInput(result);
+    }
   };
 
-  const reset = () => {
-    setInput('');
-    setCalculations('');
-    setResult('');
+  const reset = (num = '', calcs = '', res = '') => {
+    setInput(num);
+    setCalculations(calcs);
+    setResult(res);
   };
 
   const del = () => {
