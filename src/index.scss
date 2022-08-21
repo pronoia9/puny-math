@@ -19,9 +19,10 @@
     --color-keys-shadow3: hsl(28, 16%, 65%);
     --color-keys-toggle: hsl(6, 63%, 50%);
     // Text
-    --color-text-1: hsl(221, 14%, 31%);
-    --color-text-2: hsl(0, 0, 100%);
-    --color-text-3: hsl(0, 0, 100%);
+    --color-text-header: hsl(0, 0, 100%);
+    --color-text-keys: hsl(221, 14%, 31%);
+    --color-text-edit: hsl(0, 0, 100%);
+    --color-text-submit: hsl(0, 0, 100%);
   }
 
   // Theme 2
@@ -40,9 +41,10 @@
     --color-keys-shadow3: hsl(35, 11%, 61%);
     --color-keys-toggle: hsl(25, 98%, 40%);
     // Text
-    --color-text-1: hsl(60, 10%, 19%);
-    --color-text-2: hsl(0, 0, 100%);
-    --color-text-3: hsl(0, 0, 100%);
+    --color-text-header: hsl(60, 10%, 19%);
+    --color-text-keys: hsl(60, 10%, 19%);
+    --color-text-edit: hsl(0, 0, 100%);
+    --color-text-submit: hsl(0, 0, 100%);
   }
 
   // Theme 3
@@ -61,9 +63,10 @@
     --color-keys-shadow3: hsl(290, 70%, 36%);
     --color-keys-toggle: hsl(176, 100%, 44%);
     // Text
-    --color-text-1: hsl(52, 100%, 62%);
-    --color-text-2: hsl(198, 20%, 13%);
-    --color-text-3: hsl(0, 0, 100%);
+    --color-text-header: hsl(52, 100%, 62%);
+    --color-text-keys: hsl(52, 100%, 62%);
+    --color-text-edit: hsl(0, 0, 100%);
+    --color-text-submit: hsl(198, 20%, 13%);
   }
 
   /* TYPOGRAPHY */
