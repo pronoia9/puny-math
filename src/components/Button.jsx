@@ -1,3 +1,3 @@
-export default function Button({ key }) {
-  return <button className={`btn${key.style}`}>{key.key}</button>;
+export default function Button({ button, style }) {
+  return <button className={`btn${style}`}>{button}</button>;
 }
