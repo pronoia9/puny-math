@@ -35,7 +35,10 @@ export const ContextProvider = ({ children }) => {
     if (!input) return;
 
     // set calculations
-    setCalculations(`${calculations.length ? calculations + ' ' : ''}${input} ${btn}`);
+
+    const prevCalcs = calculations.length ? calculations + ' ' : '';
+    const brackets = btn === 'x' || btn === '/';
+    setCalculations(`${brackets ? '(' : ''}${prevCalcs}${input}${brackets ? ')' : ''} ${btn}`);
 
     // do calculation and set the new result
     if (result) {
@@ -55,7 +58,11 @@ export const ContextProvider = ({ children }) => {
     if (!input && !result) return;
 
     // set calculations: if theres no new input, remove the last operation from calcs string and show the result
-    setCalculations(input ? `${calculations.length ? calculations + ' ' : ''}${input}` : calculations.slice(0, calculations.length - 2));
+    setCalculations(
+      input
+        ? `${calculations.length ? calculations + ' ' : ''}${input}`
+        : calculations.slice(0, calculations.length - 2)
+    );
 
     // set a variable for res: state update isnt instant and it bugs setInput
     let res = result;
@@ -82,7 +89,7 @@ export const ContextProvider = ({ children }) => {
 
   const del = () => {
     if (showResult) reset();
-    else if (input.length > 0) setInput(input.slice(0, input.length - 1));
+    else if (input.length > 0) setInput(Number.isInteger(parseFloat(input)) ? input.slice(0, input.length - 1) : '');
   };
 
   const buttons = [
@@ -107,7 +114,8 @@ export const ContextProvider = ({ children }) => {
   ];
 
   return (
-    <StateContext.Provider value={{ theme, input, calculations, result, buttons, showResult, themeButtonHandler }}>
+    <StateContext.Provider
+      value={{ theme, input, calculations, result, buttons, showResult, addInput, themeButtonHandler }}>
       {children}
     </StateContext.Provider>
   );
