@@ -19,7 +19,7 @@ export default function Heade() {
             checked={theme === 'neutral'}
             onChange={(event) => themeButtonHandler(event)}
           />
-          <label className='label' for='neutral-theme'>1</label>
+          <label className='label' htmlFor='neutral-theme'>1</label>
         </div>
         <div className='theme light-scheme'>
           <input
@@ -30,7 +30,7 @@ export default function Heade() {
             checked={theme === 'light'}
             onChange={(event) => themeButtonHandler(event)}
           />
-          <label className='label' for='light-theme'>2</label>
+          <label className='label' htmlFor='light-theme'>2</label>
         </div>
         <div className='theme dark-scheme'>
           <input
@@ -41,7 +41,7 @@ export default function Heade() {
             checked={theme === 'dark'}
             onChange={(event) => themeButtonHandler(event)}
           />
-          <label className='label' for='dark-theme'>3</label>
+          <label className='label' htmlFor='dark-theme'>3</label>
         </div>
       </fieldset>
     </header>
