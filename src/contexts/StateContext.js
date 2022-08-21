@@ -70,7 +70,7 @@ export const ContextProvider = ({ children }) => {
   };
 
   const del = () => {
-    if (input.length > 0) setInput(input.slice(0, input.length - 1));
+    if (!showResult && input.length > 0) setInput(input.slice(0, input.length - 1));
   };
 
   const buttons = [
