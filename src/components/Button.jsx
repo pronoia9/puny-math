@@ -1,3 +1,3 @@
-export default function Button({ button, style }) {
-  return <button className={`btn${style}`}>{button}</button>;
+export default function Button({ button, type, style, click }) {
+  return <button className={`btn${style}`} onClick={() => click(button)}>{button}</button>;
 }
