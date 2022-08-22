@@ -115,7 +115,19 @@ export const ContextProvider = ({ children }) => {
 
   return (
     <StateContext.Provider
-      value={{ theme, input, calculations, result, buttons, showResult, addInput, themeButtonHandler }}>
+      value={{
+        theme,
+        input,
+        calculations,
+        result,
+        buttons,
+        showResult,
+        themeButtonHandler,
+        addInput,
+        del,
+        calculate,
+        getResult,
+      }}>
       {children}
     </StateContext.Provider>
   );
