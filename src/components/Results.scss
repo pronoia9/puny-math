@@ -4,6 +4,8 @@ div.display {
   margin-block: 1rem;
   font-size: 2.5rem;
   font-weight: 700;
+  background: var(--color-bg-screen);
+  color: var(--color-text-header);
 
   div.secondDisplay {
     font-size: 1rem;
@@ -18,5 +20,11 @@ div.display {
 @media screen and (min-width: 42rem) {
   .display {
     font-size: 3.5rem;
+  }
+}
+
+.dark-theme {
+  div.display {
+    color: hsl(0, 0, 100%);
   }
 }
