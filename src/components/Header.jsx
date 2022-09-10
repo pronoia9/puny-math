@@ -1,4 +1,5 @@
 import React from 'react';
+import './Header.scss';
 
 import { useStateContext } from '../contexts/StateContext';
 
