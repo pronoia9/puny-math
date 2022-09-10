@@ -4,7 +4,7 @@
 :root {
   /* COLORS */
   // Theme 1
-  .theme-one {
+  .dark-theme {
     // Backgrounds
     --color-bg-main: hsl(222, 26%, 31%);
     --color-bg-toggle: hsl(223, 31%, 20%);
@@ -26,7 +26,7 @@
   }
 
   // Theme 2
-  .theme-two {
+  .light-theme {
     // Backgrounds
     --color-bg-main: hsl(0, 0%, 90%);
     --color-bg-toggle: hsl(0, 5%, 81%);
@@ -48,7 +48,7 @@
   }
 
   // Theme 3
-  .theme-three {
+  .retro-theme {
     // Backgrounds
     --color-bg-main: hsl(268, 75%, 9%);
     --color-bg-toggle: hsl(268, 71%, 12%);
@@ -209,12 +209,7 @@ body {
   color: var(--neutral-white-color);
 }
 
-.app {
-  text-align: center;
-  width: 100%;
-  padding: 1.7rem;
-  max-width: 37.25rem;
-}
+
 
 .border-radius {
   border-radius: 10px;
