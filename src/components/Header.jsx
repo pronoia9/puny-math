@@ -11,16 +11,16 @@ export default function Heade() {
       <h1>calc</h1>
       <fieldset className='theme-control'>
         <legend className='theme-header'>theme</legend>
-        <div className='theme neutral-scheme'>
+        <div className='theme dark-scheme'>
           <input
             type='radio'
             name='theme'
-            id='neutral-theme'
-            value='neutral'
-            checked={theme === 'neutral'}
+            id='dark-theme'
+            value='dark'
+            checked={theme === 'dark'}
             onChange={(event) => themeButtonHandler(event)}
           />
-          <label className='label' htmlFor='neutral-theme'>1</label>
+          <label className='label' htmlFor='dark-theme'>1</label>
         </div>
         <div className='theme light-scheme'>
           <input
@@ -37,12 +37,12 @@ export default function Heade() {
           <input
             type='radio'
             name='theme'
-            id='dark-theme'
-            value='dark'
-            checked={theme === 'dark'}
+            id='retro-theme'
+            value='retro'
+            checked={theme === 'retro'}
             onChange={(event) => themeButtonHandler(event)}
           />
-          <label className='label' htmlFor='dark-theme'>3</label>
+          <label className='label' htmlFor='retro-theme'>3</label>
         </div>
       </fieldset>
     </header>
