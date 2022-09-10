@@ -3,7 +3,14 @@ header.header {
   align-items: center;
   justify-content: space-between;
 
-  h1 {}
+  h1 {
+    font-family: var(--font-family);
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.5px;
+    text-align: center;
+  }
 
   fieldset.theme-control {
     display: flex;
