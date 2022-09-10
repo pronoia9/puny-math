@@ -1,6 +1,7 @@
-import Button from './Button';
+import './Calculator.scss';
 
 import { useStateContext } from '../contexts/StateContext';
+import Button from './Button';
 
 export default function Calculator() {
   const { buttons } = useStateContext();
