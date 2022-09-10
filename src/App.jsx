@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import './App.scss';
 
 import { useStateContext } from './contexts/StateContext';
@@ -7,6 +8,11 @@ import Calculator from './components/Calculator';
 
 export default function App() {
   const { theme, addInput, calculate, del, getResult } = useStateContext();
+
+  // change theme
+  useEffect(() => {
+    document.querySelector('body').className = `${theme}-theme`;
+  }, [theme])
 
   window.addEventListener('keydown', (event) => {
     const operators = ['+', '-', 'x', '*', '/'], key = event.key;
