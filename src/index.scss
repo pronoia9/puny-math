@@ -89,7 +89,7 @@ body {
   line-height: 1.5;
   font-family: var(--font);
   background-color: var(--color-bg-main);
-  color: var(--color-text-header);
+  color: var(--color-text-edit);
 }
 
 // Remove default margin
@@ -149,3 +149,154 @@ input, button, textarea, select {
 .border-radius {
   border-radius: 10px;
 }
+
+
+/******************************************    QUESERI    ******************************************/
+// :root {
+  // --QUESERI-dark-bg-color:hsla(222, 26%, 31%, 1);
+  // --QUESERI-dark-white-color:hsla(0, 0%, 100%, 1);
+  // --QUESERI-dark-eq-bg-color:hsla(6, 63%, 50%, 1);
+  // --QUESERI-dark-reset-bg-color:hsla(225, 21%, 49%, 1);
+  // --QUESERI-dark-btn-tx-color:hsla(221, 14%, 31%, 1);
+  // --QUESERI-dark-btn-bg-color:hsla(31, 24%, 89%, 1);
+  // --QUESERI-dark-radio-bg-color:hsla(223, 31%, 20%, 1);
+  // --QUESERI-dark-display-bg-color:hsla(224, 36%, 15%, 1);
+  // --QUESERI-dark-grid-bg-color:hsla(224, 30%, 21%, 1);
+  // --QUESERI-dark-box-shadow:0px 4px 0px 0px hsla(27, 15%, 65%, 1);
+  // --QUESERI-dark-del-box-shadow:0px 4px 0px 0px hsla(224, 28%, 35%, 1);
+  // --QUESERI-dark-eq-box-shadow:0px 4px 0px 0px hsla(6, 70%, 34%, 1);
+  // --QUESERI-light-bg-color:hsla(0, 0%, 90%, 1);
+  // --QUESERI-light-tx-color:hsla(60, 10%, 19%, 1);
+  // --QUESERI-light-eq-bg-color:hsla(25, 98%, 40%, 1);
+  // --QUESERI-light-reset-bg-color:hsla(184, 42%, 37%, 1);
+  // --QUESERI-light-btn-bg-color:hsla(45, 7%, 89%, 1);
+  // --QUESERI-light-btn-tx-color:hsla(60, 10%, 19%, 1);
+  // --QUESERI-light-display-bg-color:hsla(0, 0%, 93%, 1);
+  // --QUESERI-light-grid-bg-color:hsla(0, 5%, 81%, 1);
+  // --QUESERI-light-box-shadow:0px 4px 0px 0px hsla(35, 11%, 61%, 1);
+  // --QUESERI-light-del-box-shadow:0px 4px 0px 0px hsla(185, 58%, 25%, 1);
+  // --QUESERI-light-eq-box-shadow:0px 4px 0px 0px hsla(25, 99%, 27%, 1);
+  // --QUESERI-retro-bg-color:hsla(268, 75%, 9%, 1);
+  // --QUESERI-retro-tx-color:hsla(52, 100%, 62%, 1);
+  // --QUESERI-retro-eq-bg-color:hsla(176, 100%, 44%, 1);
+  // --QUESERI-retro-eq-tx-color:hsla(198, 20%, 13%, 1);
+  // --QUESERI-retro-reset-bg-color:hsla(281, 89%, 26%, 1);
+  // --QUESERI-retro-btn-bg-color:hsla(268, 47%, 21%, 1);
+  // --QUESERI-retro-btn-tx-color:hsla(52, 100%, 62%, 1);
+  // --QUESERI-retro-display-bg-color:hsla(268, 71%, 12%, 1);
+  // --QUESERI-retro-box-shadow:0px 4px 0px 0px hsla(290, 70%, 36%, 1);
+  // --QUESERI-retro-del-box-shadow:0px 4px 0px 0px hsla(285, 91%, 52%, 1);
+  // --QUESERI-retro-eq-box-shadow:0px 4px 0px 0px hsla(177, 92%, 70%, 1);
+// }
+
+// /**************************************/
+// /*************DEFAULT COLORS***********/
+// /**************************************/
+
+// .neutral-colors {
+//   &.display {
+//     background-color: var(--QUESERI-dark-display-bg-color);
+//   }
+
+//   &.grid {
+//     background-color: var(--QUESERI-dark-grid-bg-color);
+//   }
+// }
+
+// .theme-control {
+//   &::before {
+//     background: var(--QUESERI-dark-radio-bg-color);
+//   }
+// }
+
+// .btn {
+//   background-color: var(--QUESERI-dark-btn-bg-color);
+//   box-shadow: var(--QUESERI-dark-box-shadow);
+
+//   &:hover, &:focus {
+//     background-color: var(--QUESERI-dark-white-color);
+//   }
+
+//   &:nth-child(4), &:nth-child(17) {
+//     background-color: var(--QUESERI-dark-reset-bg-color);
+//     color: var(--QUESERI-dark-white-color);
+//     box-shadow: var(--QUESERI-dark-del-box-shadow);
+//   }
+
+//   &:last-child {
+//     background-color: var(--QUESERI-dark-eq-bg-color);
+//     color: var(--QUESERI-dark-white-color);
+//     box-shadow: var(--QUESERI-dark-eq-box-shadow);
+//   }
+// }
+
+// /**************************************/
+// /***********light COLORS***********/
+// /**************************************/
+
+// .light-colors {
+//   .theme-control::before {
+//     background-color: var(--QUESERI-light-grid-bg-color);
+//   }
+
+//   &.display {
+//     background-color: var(--QUESERI-light-display-bg-color);
+//     color: var(--QUESERI-light-tx-color);
+//   }
+
+//   &.grid {
+//     background-color: var(--QUESERI-light-grid-bg-color);
+//     color: var(--QUESERI-light-tx-color);
+//   }
+
+//   .btn {
+//     background-color: var(--QUESERI-light-btn-bg-color);
+//     color: var(--QUESERI-light-tx-color);
+
+//     &:nth-child(4), &:nth-child(17) {
+//       background-color: var(--QUESERI-light-reset-bg-color);
+//       color: var(--QUESERI-dark-white-color);
+//       box-shadow: var(--QUESERI-light-del-box-shadow);
+//     }
+
+//     &:last-child {
+//       background-color: var(--QUESERI-light-eq-bg-color);
+//       box-shadow: var(--QUESERI-light-eq-box-shadow);
+//       color: var(--QUESERI-dark-white-color);
+//     }
+//   }
+// }
+
+// /**************************************/
+// /*************dark COLORS***********/
+// /**************************************/
+
+// .dark-colors {
+//   .theme-control::before {
+//     background-color: var(--QUESERI-retro-display-bg-color);
+//   }
+
+//   &.display, &.grid {
+//     background-color: var(--QUESERI-retro-display-bg-color);
+//     color: var(--QUESERI-retro-tx-color);
+//   }
+
+//   .btn {
+//     background-color: var(--QUESERI-retro-btn-bg-color);
+//     color: var(--QUESERI-retro-btn-tx-color);
+//     box-shadow: var(--QUESERI-retro-box-shadow);
+
+//     &:nth-child(4), &:nth-child(17) {
+//       background-color: var(--QUESERI-retro-reset-bg-color);
+//       color: var(--QUESERI-dark-white-color);
+//       box-shadow: var(--QUESERI-retro-del-box-shadow);
+//     }
+
+//     &:last-child {
+//       background-color: var(--QUESERI-retro-eq-bg-color);
+//       box-shadow: var(--QUESERI-retro-eq-box-shadow);
+//       color: var(--QUESERI-retro-eq-tx-color);
+//     }
+//   }
+// }
+/***************************************************************************************************/
