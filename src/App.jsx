@@ -24,7 +24,7 @@ export default function App() {
   })
 
   return (
-    <div className={`wrapper ${theme}-colors`}>
+    <div className='wrapper'>
       <div className='app'>
         <Header />
         <main>

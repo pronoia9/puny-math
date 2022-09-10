@@ -6,7 +6,7 @@ import Button from './Button';
 export default function Calculator() {
   const { buttons } = useStateContext();
   return (
-    <div className='grid border-radius dark-colors'>
+    <div className='grid border-radius'>
       {buttons.map((btn) => (
         <Button key={btn.button} {...btn} />
       ))}
