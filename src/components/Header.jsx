@@ -33,7 +33,7 @@ export default function Heade() {
           />
           <label className='label' htmlFor='light-theme'>2</label>
         </div>
-        <div className='theme dark-scheme'>
+        <div className='theme retro-scheme'>
           <input
             type='radio'
             name='theme'
