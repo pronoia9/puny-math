@@ -10,6 +10,7 @@ header.header {
     line-height: 1;
     letter-spacing: -0.5px;
     text-align: center;
+    color: var(--color-text-header);
   }
 
   fieldset.theme-control {
@@ -70,5 +71,11 @@ header.header {
         line-height: 1.1;
       }
     }
+  }
+}
+
+.dark-theme {
+  h1 {
+    color: hsl(0, 0, 100%) !important;
   }
 }
