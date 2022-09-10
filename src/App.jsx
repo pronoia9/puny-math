@@ -1,9 +1,9 @@
-import Header from './Header';
-import Results from './Results';
-import Calculator from './Calculator';
+import Header from './components/Header';
+import Results from './components/Results';
+import Calculator from './components/Calculator';
 import './App.scss';
 
-import { useStateContext } from '../contexts/StateContext';
+import { useStateContext } from './contexts/StateContext';
 
 export default function App() {
   const { theme, addInput, calculate, del, getResult } = useStateContext();
