@@ -14,3 +14,9 @@ div.display {
   div.current {
   }
 }
+
+@media screen and (min-width: 42rem) {
+  .display {
+    font-size: 3.5rem;
+  }
+}
