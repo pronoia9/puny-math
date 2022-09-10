@@ -2,6 +2,7 @@ header.header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color: var(--color-text-header);
 
   h1 {
     font-family: var(--font);
@@ -10,7 +11,6 @@ header.header {
     line-height: 1;
     letter-spacing: -0.5px;
     text-align: center;
-    color: var(--color-text-header);
   }
 
   fieldset.theme-control {
@@ -75,7 +75,5 @@ header.header {
 }
 
 .dark-theme {
-  h1 {
-    color: hsl(0, 0, 100%) !important;
-  }
+  color: hsl(0, 0, 100%) !important;
 }
