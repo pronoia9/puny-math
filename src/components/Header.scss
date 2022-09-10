@@ -26,7 +26,7 @@ header.header {
       content: '';
       width: 70%;
       height: 25px;
-      background: 'white';
+      background: var(--color-bg-toggle);
       z-index: -1;
       bottom: 8%;
       left: 33%;
@@ -51,7 +51,7 @@ header.header {
         appearance: none;
         width: 1em;
         height: 1em;
-        background: 'white';
+        background: var(--color-keys-bg2);
         border-radius: 50%;
 
         &:hover,
