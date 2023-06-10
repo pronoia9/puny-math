@@ -28,7 +28,6 @@ const Button = styled.button`
   position: relative;
   padding: 1rem 0.9rem 0.5rem 0.9rem;
   color: var(--color-text-keys);
-  font-size: var(--font-size);
   font-weight: var(--font-weight);
   line-height: 1.1;
   border: none;
@@ -40,6 +39,7 @@ const Button = styled.button`
   &:hover, &:focus {
     cursor: pointer;
     background-color: var(--color-key1-hover);
+    transition: background-color 0.25s ease-in-out;
   }
 
   // DEL + RESET
@@ -68,10 +68,13 @@ const Button = styled.button`
   }
 
   &:nth-child(4), &:nth-child(17), &:nth-child(18) {
-    font-size: calc(var(--font-size) * 0.95);
+    font-size: 1.95rem;
   }
 
   @media screen and (min-width: 42rem) {
     font-size: 2.5rem;
+    &:nth-child(4), &:nth-child(17), &:nth-child(18) {
+    font-size: 2.25rem;
+  }
   }
 `;

@@ -10,7 +10,7 @@ export default function Screen() {
         {'calculations added here maybe idk might delete'}
       </Calculations>
       <Input>
-        {input}
+        {input || '0'}
       </Input>
     </Container>
   );
@@ -20,8 +20,10 @@ const Container = styled.div`
   margin-block: 1rem;
   padding: 0.5rem 1rem;
   text-align: right;
+  color: var(--color-text-header);
   background: var(--color-bg-screen);
   border-radius: 10px;
+  transition: all 0.5s ease-in-out;
 
   @media screen and (min-width: 42rem) {
     font-size: 3.5rem;
@@ -35,9 +37,6 @@ const Calculations = styled.div`
 `;
 
 const Input = styled.div`
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--color-text-header);
   height: 60px;
 
   @media screen and (min-width: 42rem) {

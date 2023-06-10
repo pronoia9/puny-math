@@ -44,7 +44,8 @@ export const GlobalStyles = createGlobalStyle`
     text-rendering: optimizeSpeed;
     line-height: 1.5;
     font-family: var(--font);
-    color: var(--color-text-header);
+    font-size: var(--font-size);
+    font-weight: var(--font-weight);
     background-color: var(--color-bg-main);
     transition: all 0.5s ease-in-out;
   }

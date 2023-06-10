@@ -39,9 +39,7 @@ const Container = styled.div`
   transition: color 0.5s ease-in-out;
 `;
 
-const Title = styled.h1`
-  font-size: 2rem;
-  font-weight: 700;
+const Title = styled.p`
   line-height: 1;
   letter-spacing: -0.5px;
   text-align: center;
@@ -49,31 +47,29 @@ const Title = styled.h1`
 
 const Switcher = styled.fieldset`
   position: relative;
+  padding-inline: 0;
   display: flex;
   align-items: center;
-  z-index: 2;
   gap: 0.5rem;
   border: none;
-  padding-inline: 0;
+  font-size: 1rem;
 
   &::before {
-    position: absolute;
     content: '';
+    position: absolute;
+    left: 33%;
+    bottom: 11%;
     width: 70%;
     height: 25px;
     background: var(--color-bg-keypad);
-    z-index: -1;
-    bottom: 11%;
-    left: 33%;
     border-radius: 20px;
+    z-index: -1;
     transition: background 0.5s ease-in-out;
   }
 `;
 
 const SwitcherHeader = styled.p`
   text-transform: uppercase;
-  /* display: contents; */
-  font-weight: 700;
   font-size: 0.75rem;
   line-height: 1.1;
   padding-top: calc(11% + 7px);
@@ -86,7 +82,6 @@ const InputContainer = styled.div`
 `;
 
 const InputLabel = styled.label`
-  font-weight: 700;
   font-size: 0.75rem;
   line-height: 1.1;
 `;
@@ -96,12 +91,11 @@ const Input = styled.input`
   appearance: none;
   width: 1em;
   height: 1em;
+  border-radius: 50%;
   background: var(--color-key3-bg);
   transition: background 0.25s ease-in-out;
-  border-radius: 50%;
 
-  &:hover,
-  &:focus {
+  &:hover, &:focus {
     cursor: pointer;
     background: var(--color-key3-hover);
   }
