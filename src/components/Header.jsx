@@ -1,20 +1,9 @@
 import { styled } from 'styled-components';
 import { useStore } from '../store/Store';
 
-const ThemeSwitch = ({ value, index, theme, setTheme }) => {
-  const handleChange = (e) => { setTheme(e.target.value); };
-  return (
-    <InputContainer>
-      <Input type='radio' name='theme' value={value} checked={theme === value} onChange={handleChange} />
-      <InputLabel htmlFor={`${value}-theme`}>{index + 1}</InputLabel>
-    </InputContainer>
-  );
-};
-
 export default function Header() {
   const theme = useStore((state) => state.theme),
     setTheme = useStore((state) => state.setTheme);
-
   return (
     <Container key={`header-${theme}`}>
       <Title>calc</Title>
@@ -27,6 +16,16 @@ export default function Header() {
     </Container>
   );
 }
+
+function ThemeSwitch({ value, index, theme, setTheme }) {
+  const handleChange = (e) => { setTheme(e.target.value); };
+  return (
+    <InputContainer>
+      <Input type='radio' name='theme' value={value} checked={theme === value} onChange={handleChange} />
+      <InputLabel htmlFor={`${value}-theme`}>{index + 1}</InputLabel>
+    </InputContainer>
+  );
+};
 
 const Container = styled.div`
   display: flex;
