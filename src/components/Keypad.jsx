@@ -26,26 +26,24 @@ const Grid = styled.div`
 
 const Button = styled.button`
   position: relative;
-  padding-block: 0.9rem;
+  padding: 1rem 0.9rem 0.5rem 0.9rem;
   color: var(--color-text-keys);
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
   line-height: 1.1;
-  text-align: center;
-  border-radius: 5px;
   border: none;
+  border-radius: 5px;
   background-color: var(--color-key1-bg);
   box-shadow: 0px 4px 0px 0px var(--color-key1-shadow);
   transition: all 0.5s ease-in-out;
-
+  
   &:hover, &:focus {
     cursor: pointer;
     background-color: var(--color-key1-hover);
   }
 
   // DEL + RESET
-  &:nth-child(4),
-  &:nth-child(17) {
+  &:nth-child(4), &:nth-child(17) {
     color: var(--color-text-keys-text);
     background-color: var(--color-key2-bg);
     box-shadow: 0px 4px 0px 0px var(--color-key2-shadow);
@@ -67,6 +65,10 @@ const Button = styled.button`
     &:hover {
       background-color: var(--color-key3-hover);
     }
+  }
+
+  &:nth-child(4), &:nth-child(17), &:nth-child(18) {
+    font-size: calc(var(--font-size) * 0.95);
   }
 
   @media screen and (min-width: 42rem) {
