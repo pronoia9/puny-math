@@ -1,6 +1,6 @@
 import { ThemeProvider, styled } from 'styled-components';
 
-import { Header } from './components';
+import { Header, Keypad, Screen } from './components';
 import { useStore } from './store/useStore';
 import { GlobalStyles } from './styles/GlobalStyles';
 import { getTheme } from './utils/utils';
@@ -16,6 +16,10 @@ export default function App() {
       <Container>
         <Wrapper>
           <Header />
+          <main>
+            <Screen />
+            <Keypad />
+          </main>
         </Wrapper>
       </Container>
     </ThemeProvider>
