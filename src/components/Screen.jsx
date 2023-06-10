@@ -2,12 +2,13 @@ import { styled } from 'styled-components';
 import { useStore } from '../store/useStore';
 
 export default function Screen() {
-  const input = useStore((state) => state.input);
+  const input = useStore((state) => state.input),
+    calculations = useStore((state) => state.calculations);
   
   return (
     <Container className='display border-radius'>
       <Calculations>
-        {'calculations added here maybe idk might delete'}
+        {calculations}
       </Calculations>
       <Input>
         {input || '0'}
