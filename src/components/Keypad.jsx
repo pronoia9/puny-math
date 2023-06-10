@@ -39,7 +39,7 @@ const Button = styled.button`
   &:hover, &:focus {
     cursor: pointer;
     background-color: var(--color-key1-hover);
-    transition: background-color 0.25s ease-in-out;
+    transition: background-color 0.1s ease-in-out;
   }
 
   // DEL + RESET
