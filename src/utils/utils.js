@@ -21,7 +21,7 @@ export const multiply = (a, b) => parseFloat(a) * parseFloat(b);
 
 export const divide = (a, b) => parseFloat(a) / parseFloat(b);
 
-export const deleteLast = (input) => input.length !== 0 ? input.slice(0, -1) : input;
+export const deleteLast = (input) => (`${input}`.length !== 0 ? parseFloat(`${input}`.slice(0, -1)) : input);
 
 export const keyClick = ({ button, type, click }) => {
   if (type === 'number') {
