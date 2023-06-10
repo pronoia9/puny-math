@@ -8,7 +8,5 @@ export function getTheme(theme) {
       return lightTheme;
     case 'retro':
       return retroTheme;
-    default:
-      return darkTheme;
   }
 }
