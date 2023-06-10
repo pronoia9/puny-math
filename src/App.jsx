@@ -1,7 +1,7 @@
 import { ThemeProvider, styled } from 'styled-components';
 
 import { Header } from './components';
-import { useStore } from './store/Store';
+import { useStore } from './store/useStore';
 import { GlobalStyles } from './styles/GlobalStyles';
 import { getTheme } from './utils/utils';
 

@@ -1,23 +1,24 @@
 import { styled } from 'styled-components';
-import { useStore } from '../store/Store';
+import { useStore } from '../store/useStore';
 
 export default function Header() {
-  const theme = useStore((state) => state.theme),
-    setTheme = useStore((state) => state.setTheme);
+  const theme = useStore((state) => state.theme);
   return (
     <Container key={`header-${theme}`}>
-      <Title>calc</Title>
+      <Title>Calc</Title>
       <Switcher className='theme-control'>
-        <SwitcherHeader className='theme-header'>theme</SwitcherHeader>
+        <SwitcherHeader className='theme-header'>Theme</SwitcherHeader>
         {['dark', 'light', 'retro'].map((value, index) => (
-          <ThemeSwitch key={`switch-${value}`} value={value} index={index} theme={theme} setTheme={setTheme} />
+          <ThemeSwitch key={`switch-${value}`} value={value} index={index} />
         ))}
       </Switcher>
     </Container>
   );
 }
 
-function ThemeSwitch({ value, index, theme, setTheme }) {
+function ThemeSwitch({ value, index }) {
+  const theme = useStore((state) => state.theme),
+    setTheme = useStore((state) => state.setTheme);
   const handleChange = (e) => { setTheme(e.target.value); };
   return (
     <InputContainer>
