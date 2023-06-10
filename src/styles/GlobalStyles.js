@@ -4,30 +4,28 @@ export const GlobalStyles = createGlobalStyle`
   :root {
     /* Backgrounds */
     --color-bg-main: ${({ theme }) => theme.bgMain};
-    --color-bg-toggle: ${({ theme }) => theme.bgToggle};
-    --color-bg-keypad: ${({ theme }) => theme.bgKeypad};
     --color-bg-screen: ${({ theme }) => theme.bgScreen};
+    --color-bg-keypad: ${({ theme }) => theme.bgKeypad}; /* +switch/toggle bg */
     /* Keys */
-    --color-keys-bg1: ${({ theme }) => theme.keysBg1};
-    --color-keys-shadow1: ${({ theme }) => theme.keysShadow1};
-    --color-keys-hover1: ${({ theme }) => theme.keysHover1};
-    --color-keys-bg2: ${({ theme }) => theme.keysBg2};
-    --color-keys-shadow2: ${({ theme }) => theme.keysShadow2};
-    --color-keys-hover2: ${({ theme }) => theme.keysHover2};
-    --color-keys-bg3: ${({ theme }) => theme.keysBg3};
-    --color-keys-shadow3: ${({ theme }) => theme.keysShadow3};
-    --color-keys-hover3: ${({ theme }) => theme.keysHover3};
-    --color-keys-toggle: ${({ theme }) => theme.keysToggle};
+    --color-key1-bg: ${({ theme }) => theme.key1Bg};
+    --color-key1-hover: ${({ theme }) => theme.key1Hover};
+    --color-key1-shadow: ${({ theme }) => theme.key1Shadow};
+    --color-key2-bg: ${({ theme }) => theme.key2Bg};
+    --color-key2-hover: ${({ theme }) => theme.key2Hover};
+    --color-key2-shadow: ${({ theme }) => theme.key2Shadow};
+    --color-key3-bg: ${({ theme }) => theme.key3Bg};
+    --color-key3-hover: ${({ theme }) => theme.key3Hover};
+    --color-key3-shadow: ${({ theme }) => theme.key3Shadow};
     /* Text */
     --color-text-header: ${({ theme }) => theme.textHeader};
     --color-text-keys: ${({ theme }) => theme.textKeys};
-    --color-text-edit: ${({ theme }) => theme.textEdit};
-    --color-text-submit: ${({ theme }) => theme.textSubmit};
+    --color-text-keys-text: ${({ theme }) => theme.textKeysText};
+    --color-text-keys-submit: ${({ theme }) => theme.textKeysSubmit};
     /* Typography */
+    --font: 'League Spartan', sans-serif;
     --font-size: 32px;
-    --font: 'League Spartan', sans-serif;;
   }
-
+  
   // Set core root defaults
   html:focus-within {
     scroll-behavior: smooth;
@@ -39,8 +37,8 @@ export const GlobalStyles = createGlobalStyle`
     text-rendering: optimizeSpeed;
     line-height: 1.5;
     font-family: var(--font);
-    background-color: var(--color-bg-main);
     color: var(--color-text-header);
+    background-color: var(--color-bg-main);
   }
 
   // Remove default margin
@@ -97,4 +95,3 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 `;
-
