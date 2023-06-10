@@ -1,13 +1,22 @@
+import { useEffect } from 'react';
 import { ThemeProvider, styled } from 'styled-components';
 
 import { Header, Keypad, Screen } from './components';
 import { useStore } from './store/useStore';
 import { GlobalStyles } from './styles/GlobalStyles';
-import { getTheme } from './utils/utils';
+import { getTheme, keyup } from './utils/utils';
 
 export default function App() {
   // STORE
-  const theme = useStore((state) => state.theme);
+  const theme = useStore((state) => state.theme),
+    input = useStore((state) => state.input),
+    addInput = useStore((state) => state.addInput),
+    setInput = useStore((state) => state.setInput);
+
+  useEffect(() => {
+    window.addEventListener('keyup', keyup);
+    return () => { window.removeEventListener('keyup', keyup); };
+  }, []);
 
   return (
     <ThemeProvider theme={getTheme(theme)}>
@@ -15,10 +24,8 @@ export default function App() {
       <Container>
         <Wrapper>
           <Header />
-          <main>
-            <Screen />
-            <Keypad />
-          </main>
+          <Screen />
+          <Keypad />
         </Wrapper>
       </Container>
     </ThemeProvider>
