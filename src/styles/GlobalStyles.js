@@ -67,7 +67,7 @@ export const GlobalStyles = createGlobalStyle`
     list-style: none;
   }
 
-  // A elements that don't have a class get default styles
+  // A elements that dont have a class get default styles
   a:not([class]) {
     text-decoration-skip-ink: auto;
   }
