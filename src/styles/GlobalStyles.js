@@ -29,6 +29,7 @@ export const GlobalStyles = createGlobalStyle`
     /* Typography */
     --font: 'League Spartan', sans-serif;
     --font-size: 2rem;
+    --font-weight: 700;
   }
   
   // Set core root defaults
