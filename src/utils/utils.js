@@ -9,7 +9,7 @@ export const getTheme = (theme) => {
     case 'retro':
       return retroTheme;
   }
-}
+};
 
 export const isNumber = (input) => !isNaN(parseFloat(input));
 
@@ -21,10 +21,18 @@ export const multiply = (a, b) => parseFloat(a) * parseFloat(b);
 
 export const divide = (a, b) => parseFloat(a) / parseFloat(b);
 
-export const deleteLast = (input) => (`${input}`.length !== 0 ? parseFloat(`${input}`.slice(0, -1)) : input);
+export const deleteLast = (input) => (`${input}`.length !== 0 ? `${input}`.slice(0, -1) : input);
+
+export const addDecimal = (input) => input.toFixed(1);
 
 export const keyClick = ({ button, type, click }) => {
   if (type === 'number') {
   } else if (type === 'operator') {
+  }
+};
+
+export const keyup = (e, addInput) => {
+  if (isNumber(e.key)) {
+    addInput(e.key);
   }
 };
