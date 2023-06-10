@@ -1,6 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
+  @font-face {
+    font-family: 'League Spartan';
+    src: url('/fonts/LeagueSpartan-VariableFont_wght.ttf');
+  }
+
   :root {
     /* Backgrounds */
     --color-bg-main: ${({ theme }) => theme.bgMain};
@@ -23,7 +28,7 @@ export const GlobalStyles = createGlobalStyle`
     --color-text-keys-submit: ${({ theme }) => theme.textKeysSubmit};
     /* Typography */
     --font: 'League Spartan', sans-serif;
-    --font-size: 32px;
+    --font-size: 2rem;
   }
   
   // Set core root defaults
@@ -33,7 +38,8 @@ export const GlobalStyles = createGlobalStyle`
 
   // Set core body defaults
   body {
-    min-height: 100vh;
+    width: 100%;
+    height: 100vh;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
     font-family: var(--font);
