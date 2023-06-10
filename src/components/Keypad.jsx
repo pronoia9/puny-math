@@ -1,18 +1,19 @@
 import { styled } from 'styled-components';
 import { buttons } from '../utils/data';
+import { keyClick } from '../utils/utils';
 
 export default function Keypad() {
   return (
     <Grid>
-      {buttons.map((b) => (
-        <Key key={`button-${b.button}`} {...b} />
+      {buttons.map((key) => (
+        <Key key={`button-${key.button}`} {...key} />
       ))}
     </Grid>
   );
 }
 
-function Key({ button, type, click }) {
-  return <Button>{button}</Button>;
+function Key(key) {
+  return <Button onClick={() => keyClick(key)}>{key.button}</Button>;
 }
 
 const Grid = styled.div`
