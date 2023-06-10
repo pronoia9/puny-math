@@ -39,6 +39,7 @@ export const GlobalStyles = createGlobalStyle`
     font-family: var(--font);
     color: var(--color-text-header);
     background-color: var(--color-bg-main);
+    transition: all 0.5s ease-in-out;
   }
 
   // Remove default margin
