@@ -1,3 +1,5 @@
 import Header from './Header';
+import Keypad from './Keypad';
+import Screen from './Screen';
 
-export { Header };
+export { Header, Keypad, Screen };
