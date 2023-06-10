@@ -5,9 +5,9 @@ export default function Header() {
   const theme = useStore((state) => state.theme);
   return (
     <Container key={`header-${theme}`}>
-      <Title>Calc</Title>
+      <Title>CALC</Title>
       <Switcher className='theme-control'>
-        <SwitcherHeader className='theme-header'>Theme</SwitcherHeader>
+        <SwitcherHeader className='theme-header'>THEME</SwitcherHeader>
         {['dark', 'light', 'retro'].map((value, index) => (
           <ThemeSwitch key={`switch-${value}`} value={value} index={index} />
         ))}
@@ -33,6 +33,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   color: var(--color-text-header);
+  text-transform: lowercase;
   transition: color 0.5s ease-in-out;
 `;
 
