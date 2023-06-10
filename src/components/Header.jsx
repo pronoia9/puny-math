@@ -1,5 +1,7 @@
 import { styled } from 'styled-components';
+
 import { useStore } from '../store/useStore';
+import { themes } from '../utils/data';
 
 export default function Header() {
   const theme = useStore((state) => state.theme);
@@ -8,7 +10,7 @@ export default function Header() {
       <Title>CALC</Title>
       <Switcher className='theme-control'>
         <SwitcherHeader className='theme-header'>THEME</SwitcherHeader>
-        {['dark', 'light', 'retro'].map((value, index) => (
+        {themes.map((value, index) => (
           <ThemeSwitch key={`switch-${value}`} value={value} index={index} />
         ))}
       </Switcher>
