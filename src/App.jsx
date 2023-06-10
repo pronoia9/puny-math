@@ -27,7 +27,6 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: var(--color-bg-main);
 `;
 
 const Wrapper = styled.div`
