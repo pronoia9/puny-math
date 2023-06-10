@@ -1,49 +1,29 @@
 import { styled } from 'styled-components';
 import { useStore } from '../store/Store';
 
-const ThemeSwitch = ({ index }) => (
-  <InputContainer className='theme dark-scheme'>
-    <Input type='radio' name='theme' id='dark-theme' value='dark' checked={theme === 'dark'} onChange={handleChange} />
-    <InputLabel className='label' htmlFor='dark-theme'>
-      {index + 1}
-    </InputLabel>
-  </InputContainer>
-);
+const ThemeSwitch = ({ value, index, theme, setTheme }) => {
+  const handleChange = (e) => { setTheme(e.target.value); };
+  return (
+    <InputContainer>
+      <Input type='radio' name='theme' value={value} checked={theme === value} onChange={handleChange} />
+      <InputLabel htmlFor={`${value}-theme`}>{index + 1}</InputLabel>
+    </InputContainer>
+  );
+};
 
 export default function Header() {
   const theme = useStore((state) => state.theme),
     setTheme = useStore((state) => state.setTheme);
 
-  const handleChange = (e) => {
-    setTheme(e.target.value);
-  };
-
   return (
     <Container key={`header-${theme}`}>
-
-        <Title>calc</Title>
-        <Switcher className='theme-control'>
-          <SwitcherHeader className='theme-header'>theme</SwitcherHeader>
-          <InputContainer className='theme dark-scheme'>
-            <Input type='radio' name='theme' id='dark-theme' value='dark' checked={theme === 'dark'} onChange={handleChange} />
-            <InputLabel className='label' htmlFor='dark-theme'>
-              1
-            </InputLabel>
-          </InputContainer>
-          <InputContainer className='theme light-scheme'>
-            <Input type='radio' name='theme' id='light-theme' value='light' checked={theme === 'light'} onChange={handleChange} />
-            <InputLabel className='label' htmlFor='light-theme'>
-              2
-            </InputLabel>
-          </InputContainer>
-          <InputContainer className='theme retro-scheme'>
-            <Input type='radio' name='theme' id='retro-theme' value='retro' checked={theme === 'retro'} onChange={handleChange} />
-            <InputLabel className='label' htmlFor='retro-theme'>
-              3
-            </InputLabel>
-          </InputContainer>
-        </Switcher>
-
+      <Title>calc</Title>
+      <Switcher className='theme-control'>
+        <SwitcherHeader className='theme-header'>theme</SwitcherHeader>
+        {['dark', 'light', 'retro'].map((value, index) => (
+          <ThemeSwitch key={`switch-${value}`} value={value} index={index} theme={theme} setTheme={setTheme} />
+        ))}
+      </Switcher>
     </Container>
   );
 }
