@@ -8,8 +8,8 @@ export default function Header() {
   return (
     <Container key={`header-${theme}`}>
       <Title>CALC</Title>
-      <Switcher className='theme-control'>
-        <SwitcherHeader className='theme-header'>THEME</SwitcherHeader>
+      <Switcher>
+        <SwitcherHeader>THEME</SwitcherHeader>
         {themes.map((value, index) => (
           <ThemeSwitch key={`switch-${value}`} value={value} index={index} />
         ))}

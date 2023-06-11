@@ -6,7 +6,7 @@ export default function Screen() {
     calculations = useStore((state) => state.calculations);
   
   return (
-    <Container className='display border-radius'>
+    <Container>
       <Calculations>
         {calculations}
       </Calculations>
