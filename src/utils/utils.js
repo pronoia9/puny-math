@@ -2,12 +2,9 @@ import { darkTheme, lightTheme, retroTheme } from '../styles/Themes';
 
 export const getTheme = (theme) => {
   switch (theme) {
-    case 'dark':
-      return darkTheme;
-    case 'light':
-      return lightTheme;
-    case 'retro':
-      return retroTheme;
+    case 'dark': return darkTheme;
+    case 'light': return lightTheme;
+    case 'retro': return retroTheme;
   }
 };
 
@@ -34,14 +31,10 @@ export const addDecimal = (input) => input.toFixed(1);
 
 export const calculatePls = (operator, a, b) => {
   switch (operator) {
-    case '+':
-      return add(a, b);
-    case '-':
-      return subtract(a, b);
-    case '/':
-      return divide(a, b);
-    case '*':
-      return multiply(a, b);
+    case '+': return add(a, b);
+    case '-': return subtract(a, b);
+    case '/': return divide(a, b);
+    case '*': return multiply(a, b);
   }
 };
 
