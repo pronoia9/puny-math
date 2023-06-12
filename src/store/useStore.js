@@ -46,12 +46,10 @@ export const useStore = create((set) => ({
 
   doCalculation: () =>
     set(({ input, calculations, operator }) => {
-      console.log('DO CALCULATION function!');
+      let newState = {};
       if (!input || !calculations || !operator) console.log('cant do any calculations');
-      else {
-
-      }
-      return { input: `${input}` };
+      else newState = { input: calculatePls(operator, calculations, input), calculations: '', operator: '' };
+      return { ...newState };
     }),
 
   reset: () => set({ input: '', calculations: '', operator: '' }),
