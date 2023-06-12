@@ -25,9 +25,9 @@ export const subtract = (a, b) => parseFloat(a) - parseFloat(b);
 export const multiply = (a, b) => parseFloat(a) * parseFloat(b);
 export const divide = (a, b) => parseFloat(a) / parseFloat(b);
 
+// BASIC UTILS
 export const deleteLast = (input) => (`${input}`.length !== 0 ? `${input}`.slice(0, -1) : input);
-
-export const addDecimal = (input) => input.toFixed(1);
+// export const addDecimal = (input) => input.toFixed(1);
 
 export const calculatePls = (operator, a, b) => {
   switch (operator) {
