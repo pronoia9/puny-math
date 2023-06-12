@@ -38,6 +38,7 @@ export const useStore = create((set) => ({
         if (!state.calculations) newState = { calculations: state.input };
         // do calculation and update the state.calculations with the calculated value
         else newState = { calculations: calculatePls(state.operator, state.calculations, state.input) };
+        // reset the input, update the operator, and add whichever calculations we got
         newState = { input: '', operator, ...newState };
       }
       return { ...newState };
