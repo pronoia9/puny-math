@@ -49,5 +49,5 @@ export const useStore = create((set) => ({
       return { ...newState };
     }),
 
-  reset: () => set({ input: '', calculations: '', operator: '' }),
+  reset: () => set({ input: '0', calculations: '', operator: '' }),
 }));
