@@ -9,13 +9,13 @@ export const useStore = create((set) => ({
   setInput: (newInput) => set({ input: newInput }),
   addInput: (newInput) =>
     set(({ input }) => {
-      let append = '';
-      if (isValidNumber(newInput)) append = newInput;
+      let newState = { input: '' };
+      if (isValidNumber(newInput)) newState.input = `${parseFloat(`${input}${newInput}`)}`;
       else if (isValidInput(newInput) && !input.includes('.')) {
-        if (!input) append = '0.';
-        else append = newInput;
+        if (!input) newState.input = '0.';
+        else newState.input = newInput;
       }
-      return { input: `${input}${append}` };
+      return { ...newState };
     }),
   removeInput: () =>
     set((state) => {
