@@ -4,21 +4,17 @@ import 'react-tooltip/dist/react-tooltip.css';
 
 import { useStore } from '../store/useStore';
 import { copyToClipboard } from '../utils/utils';
-import { useRef } from 'react';
 
 export default function Screen() {
   const input = useStore((state) => state.input),
     calculations = useStore((state) => state.calculations);
-  const calculationsRef = useRef(),
-    inputRef = useRef();
   
   return (
     <Container>
-      <Calculations className='calculations' ref={calculationsRef} onClick={() => copyToClipboard(calculations)}>{calculations}</Calculations>
+      <Calculations className='calculations' onClick={() => copyToClipboard(calculations)}>{calculations}</Calculations>
       {/* {calculations && <Tooltip id='calculations-tooltip' anchorSelect='.calculations'>{calculations}</Tooltip>} */}
-
-      <Input className='input' ref={inputRef} onClick={() => copyToClipboard(input)}>{input}</Input>
-      {input && input !== '0' && input.length > 16 && <Tooltip id='input-tooltip' anchorSelect='.input'>{input || 0}</Tooltip>}
+      <Input className='input' onClick={() => copyToClipboard(input)}>{input}</Input>
+      {`${input}`.length > 15 && <Tooltip id='input-tooltip' anchorSelect='.input'>{input || 0}</Tooltip>}
     </Container>
   );
 }
