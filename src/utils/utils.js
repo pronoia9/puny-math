@@ -20,10 +20,10 @@ export const isValidInput = (input) => !isNaN(parseFloat(input)) || input === '.
 export const isValidOperator = (operator) => operator === '+' || operator === '-' || operator === '/' || operator === '*' || operator === 'x';
 
 // BASIC OPERATIONS
-export const add = (a, b) => parseFloat(a) + parseFloat(b);
-export const subtract = (a, b) => parseFloat(a) - parseFloat(b);
-export const multiply = (a, b) => parseFloat(a) * parseFloat(b);
-export const divide = (a, b) => parseFloat(a) / parseFloat(b);
+export const add = (a, b) => `${parseFloat(a) + parseFloat(b)}`;
+export const subtract = (a, b) => `${parseFloat(a) - parseFloat(b)}`;
+export const multiply = (a, b) => `${parseFloat(a) * parseFloat(b)}`;
+export const divide = (a, b) => `${parseFloat(a) / parseFloat(b)}`;
 
 // BASIC UTILS
 export const deleteLast = (input) => (`${input}`.length !== 0 ? `${input}`.slice(0, -1) : input);
