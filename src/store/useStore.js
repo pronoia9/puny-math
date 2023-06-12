@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { deleteLast } from '../utils/utils';
+import { deleteLast, isValidInput, isValidNumber, isValidOperator } from '../utils/utils';
 
 export const useStore = create((set) => ({
   theme: 'dark',
@@ -10,8 +10,8 @@ export const useStore = create((set) => ({
   addInput: (newInput) =>
     set(({ input }) => {
       let append = '';
-      if (!isNaN(parseFloat(newInput))) append = newInput;
-      else if (newInput === '.' && !input.includes('.')) {
+      if (isValidNumber(newInput)) append = newInput;
+      else if (isValidInput(newInput) && !input.includes('.')) {
         if (!input) append = '0.';
         else append = newInput;
       }
@@ -31,9 +31,11 @@ export const useStore = create((set) => ({
   resetOperator: () => set({ operator: '' }),
 
   doOperation: (operator) =>
-    set(({ input }) => {
-      console.log('DO OPERATION function!');
-      return { input: `${input}` };
+    set(({ input, operator }) => {
+      let newState = {};
+      isValidOperator(operator) && console.log('VALID OPERATOR');
+      if (input && isValidOperator(operator)) newState = { calculations: input, input: '', operator };
+      return { ...newState };
     }),
 
   doCalculation: () =>
