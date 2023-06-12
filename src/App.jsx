@@ -9,12 +9,10 @@ import { getTheme, keyup } from './utils/utils';
 export default function App() {
   // STORE
   const theme = useStore((state) => state.theme),
-    input = useStore((state) => state.input),
-    addInput = useStore((state) => state.addInput),
-    setInput = useStore((state) => state.setInput);
+    addInput = useStore((state) => state.addInput);
 
   useEffect(() => {
-    window.addEventListener('keyup', keyup);
+    window.addEventListener('keyup', (e) => { keyup(e, addInput); });
     return () => { window.removeEventListener('keyup', keyup); };
   }, []);
 
