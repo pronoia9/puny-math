@@ -25,6 +25,7 @@ export const useStore = create((set) => ({
 
   doOperation: (operator) =>
     set(({ input }) => {
+      console.log('doOperation function!');
       return { input: `${input}` };
     }),
 

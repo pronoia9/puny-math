@@ -10,10 +10,11 @@ export default function App() {
   // STORE
   const theme = useStore((state) => state.theme),
     addInput = useStore((state) => state.addInput),
-    removeInput = useStore((state) => state.removeInput);
+    removeInput = useStore((state) => state.removeInput),
+    doOperation = useStore((state) => state.doOperation);
 
   useEffect(() => {
-    window.addEventListener('keyup', (e) => { keyup(e, addInput, removeInput); });
+    window.addEventListener('keyup', (e) => { keyup(e, addInput, removeInput, doOperation); });
     return () => { window.removeEventListener('keyup', keyup); };
   }, []);
 
