@@ -23,14 +23,20 @@ export const useStore = create((set) => ({
     }),
   resetInput: () => set({ input: '' }),
 
+  calculations: '',
+  resetCalculations: () => set({ calculations: '' }),
+
   doOperation: (operator) =>
     set(({ input }) => {
-      console.log('doOperation function!');
+      console.log('DO OPERATION function!');
       return { input: `${input}` };
     }),
 
-  calculations: '',
-  resetCalculations: () => set({ calculations: '' }),
+  doCalculation: () =>
+    set(({ input, calculations }) => {
+      console.log('DO CALCULATION function!');
+      return { input: `${input}` };
+    }),
 
   reset: () => set({ input: '', calculations: '' }),
 }));
