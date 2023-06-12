@@ -11,7 +11,7 @@ export default function Screen() {
         {calculations}
       </Calculations>
       <Input>
-        {input || '0'}
+        {input}
       </Input>
     </Container>
   );

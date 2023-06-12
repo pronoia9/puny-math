@@ -5,7 +5,7 @@ export const useStore = create((set) => ({
   theme: 'dark',
   setTheme: (newTheme) => set({ theme: newTheme }),
 
-  input: '',
+  input: '0',
   setInput: (newInput) => set({ input: newInput }),
   addInput: (newInput) =>
     set(({ input }) => {
@@ -34,12 +34,9 @@ export const useStore = create((set) => ({
     set((state) => {
       let newState = {};
       if (state.input && isValidOperator(operator)) {
-        // if theres no prev calculations, just put the input there
-        if (!state.calculations) newState = { calculations: state.input };
-        // do calculation and update the state.calculations with the calculated value
-        else newState = { calculations: calculatePls(state.operator, state.calculations, state.input) };
-        // reset the input, update the operator, and add whichever calculations we got
-        newState = { input: '', operator, ...newState };
+        if (!state.calculations) newState = { calculations: state.input }; // if theres no prev calculations, just put the input there
+        else newState = { calculations: calculatePls(state.operator, state.calculations, state.input) }; // do calculation and update the state.calculations with the calculated value
+        newState = { input: '', operator, ...newState }; // reset the input, update the operator, and add whichever calculations we got
       }
       return { ...newState };
     }),
