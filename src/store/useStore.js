@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { deleteLast, isValidInput, isValidNumber, isValidOperator } from '../utils/utils';
+import { deleteLast, isValidInput, isValidNumber, isValidOperator,add, subtract, multiply, divide, calculatePls } from '../utils/utils';
 
 export const useStore = create((set) => ({
   theme: 'dark',
@@ -33,15 +33,22 @@ export const useStore = create((set) => ({
   doOperation: (operator) =>
     set((state) => {
       let newState = {};
-      if (state.input && isValidOperator(operator)) newState = { calculations: state.input, input: '', operator };
+      if (state.input && isValidOperator(operator)) {
+        // if theres no prev calculations, just put the input there
+        if (!state.calculations) newState = { calculations: state.input };
+        // do calculation and update the state.calculations with the calculated value
+        else newState = { calculations: calculatePls(state.operator, state.calculations, state.input) };
+        newState = { input: '', operator, ...newState };
+      }
       return { ...newState };
     }),
 
   doCalculation: () =>
     set(({ input, calculations, operator }) => {
       console.log('DO CALCULATION function!');
-      if (!input || !calculations || !operator) console.log('cant do anything');
+      if (!input || !calculations || !operator) console.log('cant do any calculations');
       else {
+
       }
       return { input: `${input}` };
     }),

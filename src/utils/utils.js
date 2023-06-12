@@ -18,7 +18,7 @@ export const isValidNumber = (input) => !isNaN(parseFloat(input));
 export const isValidInput = (input) => !isNaN(parseFloat(input)) || input === '.';
 
 // VALIDATE OPERATOR
-export const isValidOperator = (operator) => (operator === '+' || operator === '-' || operator === '/' || operator === '*' || operator === 'x');
+export const isValidOperator = (operator) => operator === '+' || operator === '-' || operator === '/' || operator === '*' || operator === 'x';
 
 // BASIC OPERATIONS
 export const add = (a, b) => parseFloat(a) + parseFloat(b);
@@ -29,6 +29,19 @@ export const divide = (a, b) => parseFloat(a) / parseFloat(b);
 export const deleteLast = (input) => (`${input}`.length !== 0 ? `${input}`.slice(0, -1) : input);
 
 export const addDecimal = (input) => input.toFixed(1);
+
+export const calculatePls = (operator, a, b) => {
+  switch (operator) {
+    case '+':
+      return add(a, b);
+    case '-':
+      return subtract(a, b);
+    case '/':
+      return divide(a, b);
+    case '*':
+      return multiply(a, b);
+  }
+};
 
 export const keyClick = ({ button, type, click }) => {
   if (type === 'number') {
@@ -45,5 +58,7 @@ export const keyup = (e, addInput, removeInput, doOperation, doCalculation) => {
   // DELETE
   if (e?.code === 'Backspace' || e?.code === 'Delete') removeInput();
   // OPERATIONS, verification is also in doOperation in useStore.js
-  if (isValidOperator(e?.key)) { doOperation(e.key); };
+  if (isValidOperator(e?.key)) {
+    doOperation(e.key);
+  }
 };
