@@ -1,19 +1,26 @@
 import { styled } from 'styled-components';
+
+import { useStore } from '../store/useStore';
 import { buttons } from '../utils/data';
 import { keyClick } from '../utils/utils';
 
 export default function Keypad() {
   return (
     <Grid>
-      {buttons.map((key) => (
-        <Key key={`button-${key.button}`} {...key} />
+      {buttons.map((button) => (
+        <Key key={`button-${button.button}`} {...button} />
       ))}
     </Grid>
   );
 }
 
-function Key(key) {
-  return <Button onClick={() => keyClick(key)}>{key.button}</Button>;
+function Key(button) {
+  const addInput = useStore((state) => state.addInput),
+    removeInput = useStore((state) => state.removeInput),
+    doOperation = useStore((state) => state.doOperation),
+    doCalculation = useStore((state) => state.doCalculation),
+    reset = useStore((state) => state.reset);
+  return <Button onClick={() => keyClick(button, addInput, removeInput, doOperation, doCalculation, reset)}>{button.button}</Button>;
 }
 
 const Grid = styled.div`
