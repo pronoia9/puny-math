@@ -33,19 +33,12 @@ export const keyClick = ({ button, type, click }) => {
 
 // EVENT LISTENER FUNCTION
 export const keyup = (e, addInput, removeInput, doOperation, doCalculation) => {
-  console.log(e);
-
   // ADD INPUT, verification is also in addInput in useStore.js
   if (isNumber(e?.key) || e?.key === '.') addInput(e.key);
-
   // SUBMIT
-  if (e?.code === 'Enter') {
-    // submit();
-  }
-
+  if (e?.code === 'Enter') doCalculation();
   // DELETE
   if (e?.code === 'Backspace' || e?.code === 'Delete') removeInput();
-
   // OPERATIONS, verification is also in doOperation in useStore.js
   if (e?.key === '+' || e?.key === '-' || e?.key === '/' || e?.key === '*' || e?.key === 'x') { doOperation(e.key); };
 };
