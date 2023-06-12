@@ -1,49 +1,106 @@
-import React from 'react';
+import { styled } from 'styled-components';
 
-import { useStateContext } from '../contexts/StateContext';
+import { useStore } from '../store/useStore';
+import { themes } from '../utils/data';
 
-export default function Heade() {
-  const { theme, themeButtonHandler } = useStateContext();
-
+export default function Header() {
+  const theme = useStore((state) => state.theme);
   return (
-    <header className='header'>
-      <h1>calc</h1>
-      <fieldset className='theme-control'>
-        <legend className='theme-header'>theme</legend>
-        <div className='theme neutral-scheme'>
-          <input
-            type='radio'
-            name='theme'
-            id='neutral-theme'
-            value='neutral'
-            checked={theme === 'neutral'}
-            onChange={(event) => themeButtonHandler(event)}
-          />
-          <label className='label' for='neutral-theme'>1</label>
-        </div>
-        <div className='theme light-scheme'>
-          <input
-            type='radio'
-            name='theme'
-            id='light-theme'
-            value='light'
-            checked={theme === 'light'}
-            onChange={(event) => themeButtonHandler(event)}
-          />
-          <label className='label' for='light-theme'>2</label>
-        </div>
-        <div className='theme dark-scheme'>
-          <input
-            type='radio'
-            name='theme'
-            id='dark-theme'
-            value='dark'
-            checked={theme === 'dark'}
-            onChange={(event) => themeButtonHandler(event)}
-          />
-          <label className='label' for='dark-theme'>3</label>
-        </div>
-      </fieldset>
-    </header>
+    <Container key={`header-${theme}`}>
+      <Title>CALC</Title>
+      <Switcher>
+        <SwitcherHeader>THEME</SwitcherHeader>
+        {themes.map((value, index) => (
+          <ThemeSwitch key={`switch-${value}`} value={value} index={index} />
+        ))}
+      </Switcher>
+    </Container>
   );
 }
+
+function ThemeSwitch({ value, index }) {
+  const theme = useStore((state) => state.theme),
+    setTheme = useStore((state) => state.setTheme);
+  const handleChange = (e) => { setTheme(e.target.value); };
+  return (
+    <InputContainer>
+      <Input type='radio' name='theme' value={value} checked={theme === value} onChange={handleChange} />
+      <InputLabel htmlFor={`${value}-theme`}>{index + 1}</InputLabel>
+    </InputContainer>
+  );
+};
+
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--color-text-header);
+  text-transform: lowercase;
+  transition: color 0.5s ease-in-out;
+`;
+
+const Title = styled.p`
+  line-height: 1;
+  letter-spacing: -0.5px;
+  text-align: center;
+`;
+
+const Switcher = styled.fieldset`
+  position: relative;
+  padding-inline: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  font-size: 1rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 33%;
+    bottom: 11%;
+    width: 70%;
+    height: 25px;
+    background: var(--color-bg-keypad);
+    border-radius: 20px;
+    z-index: -1;
+    transition: background 0.5s ease-in-out;
+  }
+`;
+
+const SwitcherHeader = styled.p`
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  line-height: 1.1;
+  padding-top: calc(11% + 7px);
+`;
+
+const InputContainer = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.6rem;
+`;
+
+const InputLabel = styled.label`
+  font-size: 0.75rem;
+  line-height: 1.1;
+`;
+
+const Input = styled.input`
+  opacity: 0;
+  appearance: none;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  background: var(--color-key3-bg);
+  transition: background 0.25s ease-in-out;
+
+  &:hover, &:focus {
+    cursor: pointer;
+    background: var(--color-key3-hover);
+  }
+
+  &:checked {
+    opacity: 1;
+  }
+`;

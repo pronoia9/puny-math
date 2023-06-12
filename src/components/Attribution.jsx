@@ -1,12 +1,12 @@
-import React from 'react';
+import { styled } from "styled-components";
 
-const Attribution = () => {
+export default function Attribution() {
   return (
-    <div class='attribution'>
-      Challenge by <a href='https://www.frontendmentor.io?ref=challenge' target='_blank' rel='noreferrer'>Frontend Mentor</a>.
+    <Container>
+      Challenge by <a href='https://www.frontendmentor.io' target='_blank' rel='noreferrer'>Frontend Mentor</a>.
       Coded by<a href='https://github.com/pronoia9' target='_blank' rel='noreferrer'>Jay Ansin</a>.
-    </div>
+    </Container>
   );
 };
 
-export default Attribution;
+const Container = styled.div``;
