@@ -32,7 +32,7 @@ export const keyClick = ({ button, type, click }) => {
 };
 
 // EVENT LISTENER FUNCTION
-export const keyup = (e, addInput, removeInput, doOperation) => {
+export const keyup = (e, addInput, removeInput, doOperation, doCalculation) => {
   console.log(e);
 
   // ADD INPUT, verification is also in addInput in useStore.js

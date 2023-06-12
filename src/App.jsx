@@ -11,10 +11,12 @@ export default function App() {
   const theme = useStore((state) => state.theme),
     addInput = useStore((state) => state.addInput),
     removeInput = useStore((state) => state.removeInput),
-    doOperation = useStore((state) => state.doOperation);
+    doOperation = useStore((state) => state.doOperation),
+    doCalculation = useStore((state) => state.doCalculation);
 
+  // EVENT LISTENER FOR KEYS
   useEffect(() => {
-    window.addEventListener('keyup', (e) => { keyup(e, addInput, removeInput, doOperation); });
+    window.addEventListener('keyup', (e) => { keyup(e, addInput, removeInput, doOperation, doCalculation); });
     return () => { window.removeEventListener('keyup', keyup); };
   }, []);
 
