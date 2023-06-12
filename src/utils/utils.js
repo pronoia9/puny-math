@@ -32,10 +32,19 @@ export const keyClick = ({ button, type, click }) => {
 };
 
 // EVENT LISTENER FUNCTION
-export const keyup = (e, addInput) => {
-  addInput(e.key); // verification is in addInput in useStore.js
+export const keyup = (e, addInput, removeInput) => {
+  console.log(e.code);
 
-  if (e.key === 'Enter') {
+  // ADD INPUT
+  if (isNumber(e.key) || e.key === '.') addInput(e.key) // verification is also in addInput in useStore.js
+
+  // SUBMIT
+  if (e.code === 'Enter') {
     // submit();
+  }
+
+  // DELETE
+  if (e.code === 'Backspace' || e.code === 'Delete') {
+    removeInput();
   }
 };
