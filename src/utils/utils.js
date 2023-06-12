@@ -17,7 +17,7 @@ export const isValidNumber = (input) => !isNaN(parseFloat(input));
 export const isValidInput = (input) => !isNaN(parseFloat(input)) || input === '.';
 
 // VALIDATE OPERATOR
-export const isValidOperator = (operator) => operator === '+' || operator === '-' || operator === '/' || operator === '*' || operator === 'x';
+export const isValidOperator = (operator) => operator === '+' || operator === '-' || operator === '/' || operator === '*';
 
 // BASIC OPERATIONS
 export const add = (a, b) => `${parseFloat(a) + parseFloat(b)}`;
