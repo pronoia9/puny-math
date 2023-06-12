@@ -34,11 +34,17 @@ const Container = styled.div`
 const Calculations = styled.div`
   font-size: 1rem;
   font-weight: 500;
-  min-height: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+  overflow: hidden;
 `;
 
 const Input = styled.div`
   height: 60px;
+  display: flex;
+  justify-content: flex-end;
+  overflow: hidden;
 
   @media screen and (min-width: 42rem) {
     height: 84px;
