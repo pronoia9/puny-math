@@ -8,8 +8,14 @@ export const useStore = create((set) => ({
   input: '',
   setInput: (newInput) => set({ input: newInput }),
   addInput: (newInput) =>
-    set((state) => {
-      return { input: `${state.input}${newInput}` };
+    set(({ input }) => {
+      let append = '';
+      if (!isNaN(parseFloat(newInput))) append = newInput;
+      else if (newInput === '.' && !input.includes('.')) {
+        if (!input) append = '0.';
+        else append = newInput;
+      }
+      return { input: `${input}${append}` };
     }),
   removeInput: () =>
     set((state) => {
