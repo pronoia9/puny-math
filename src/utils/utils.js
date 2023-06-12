@@ -45,20 +45,19 @@ export const calculatePls = (operator, a, b) => {
   }
 };
 
-export const keyClick = ({ button, type, click }) => {
-  if (type === 'number') {
-  } else if (type === 'operator') {
-  }
+// KEY/BUTTON CLICK
+export const keyClick = (key, addInput, removeInput, doOperation, doCalculation, reset) => {
+  if (key.click === 'addInput') addInput(key.button); // NUMBERS
+  else if (key.click === 'calculate') doOperation(key.button); // + - * /
+  else if (key.click === 'delete') removeInput();
+  else if (key.click === 'reset') reset();
+  else if (key.click === 'submit') doCalculation();
 };
 
 // EVENT LISTENER FUNCTION
 export const keyup = (e, addInput, removeInput, doOperation, doCalculation) => {
-  // ADD INPUT, verification is also in addInput in useStore.js
-  if (isValidInput(e?.key)) addInput(e.key);
-  // SUBMIT
-  if (e?.code === 'Enter') doCalculation();
-  // DELETE
-  if (e?.code === 'Backspace' || e?.code === 'Delete') removeInput();
-  // OPERATIONS, verification is also in doOperation in useStore.js
-  if (isValidOperator(e?.key)) doOperation(e.key);
+  if (isValidInput(e?.key)) addInput(e.key); // ADD INPUT, verification is also in addInput in useStore.js
+  if (isValidOperator(e?.key)) doOperation(e.key); // OPERATIONS, verification is also in doOperation in useStore.js
+  if (e?.code === 'Backspace' || e?.code === 'Delete') removeInput(); // DELETE
+  if (e?.code === 'Enter') doCalculation(); // SUBMIT
 };
