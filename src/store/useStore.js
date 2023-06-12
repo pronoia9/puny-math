@@ -31,10 +31,9 @@ export const useStore = create((set) => ({
   resetOperator: () => set({ operator: '' }),
 
   doOperation: (operator) =>
-    set(({ input, operator }) => {
+    set((state) => {
       let newState = {};
-      isValidOperator(operator) && console.log('VALID OPERATOR');
-      if (input && isValidOperator(operator)) newState = { calculations: input, input: '', operator };
+      if (state.input && isValidOperator(operator)) newState = { calculations: state.input, input: '', operator };
       return { ...newState };
     }),
 
