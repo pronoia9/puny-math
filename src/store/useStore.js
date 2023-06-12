@@ -13,7 +13,7 @@ export const useStore = create((set) => ({
       if (isValidNumber(newInput)) newState.input = `${parseFloat(`${input}${newInput}`)}`;
       else if (isValidInput(newInput) && !input.includes('.')) {
         if (!input) newState.input = '0.';
-        else newState.input = newInput;
+        else newState.input = input + '.';
       }
       return { ...newState };
     }),
