@@ -1,5 +1,7 @@
 import { styled } from 'styled-components';
+
 import { useStore } from '../store/useStore';
+import { copyToClipboard } from '../utils/utils';
 
 export default function Screen() {
   const input = useStore((state) => state.input),
@@ -7,11 +9,11 @@ export default function Screen() {
   
   return (
     <Container>
-      <Calculations>
+      <Calculations onClick={() => copyToClipboard(calculations)}>
         {calculations}
       </Calculations>
-      <Input>
-        {input}
+      <Input onClick={() => copyToClipboard(input)}>
+        <span>{input}</span>
       </Input>
     </Container>
   );
@@ -25,6 +27,7 @@ const Container = styled.div`
   background: var(--color-bg-screen);
   border-radius: 10px;
   transition: all 0.5s ease-in-out;
+  height: 100%;
 
   @media screen and (min-width: 42rem) {
     font-size: 3.5rem;
@@ -38,6 +41,11 @@ const Calculations = styled.div`
   display: flex;
   justify-content: flex-end;
   overflow: hidden;
+
+  &:hover {
+    cursor: pointer;
+    overflow: visible;
+  }
 `;
 
 const Input = styled.div`
@@ -45,6 +53,11 @@ const Input = styled.div`
   display: flex;
   justify-content: flex-end;
   overflow: hidden;
+
+  &:hover {
+    cursor: pointer;
+    overflow: visible;
+  }
 
   @media screen and (min-width: 42rem) {
     height: 84px;
