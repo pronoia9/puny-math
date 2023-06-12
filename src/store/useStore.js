@@ -34,8 +34,8 @@ export const useStore = create((set) => ({
     set((state) => {
       let newState = {};
       if (state.input && isValidOperator(operator)) {
-        if (!state.calculations) newState = { calculations: state.input }; // if theres no prev calculations, just put the input there
-        else newState = { calculations: calculatePls(state.operator, state.calculations, state.input) }; // do calculation and update the state.calculations with the calculated value
+        if (!state.calculations) newState = { calculations: `${parseFloat(state.input)}` }; // if theres no prev calculations, just put the input there
+        else newState = { calculations: `${parseFloat(calculatePls(state.operator, state.calculations, state.input))}` }; // do calculation and update the state.calculations with the calculated value
         newState = { input: '', operator, ...newState }; // reset the input, update the operator, and add whichever calculations we got
       }
       return { ...newState };
