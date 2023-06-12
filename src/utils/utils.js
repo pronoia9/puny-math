@@ -11,7 +11,7 @@ export const getTheme = (theme) => {
   }
 };
 
-export const copyToClipboard = (val) => { navigator.clipboard.writeText(val); }
+export const copyToClipboard = (val) => { navigator.clipboard.writeText(val); };
 
 // VALIDATE NUMBER
 export const isValidNumber = (input) => !isNaN(parseFloat(input));
@@ -23,22 +23,10 @@ export const isValidInput = (input) => !isNaN(parseFloat(input)) || input === '.
 export const isValidOperator = (operator) => operator === '+' || operator === '-' || operator === '/' || operator === '*' || operator === 'x';
 
 // BASIC OPERATIONS
-export const add = (a, b) => {
-  console.log('add()', a, '+', b, '=', parseFloat(a) + parseFloat(b));
-  return parseFloat(a) + parseFloat(b);
-};
-export const subtract = (a, b) => {
-  console.log('subtract()', a, '-', b, '=', parseFloat(a) - parseFloat(b));
-  return parseFloat(a) - parseFloat(b);
-};
-export const multiply = (a, b) => {
-  console.log('multiply()', a, '*', b, '=', parseFloat(a) * parseFloat(b));
-  return parseFloat(a) * parseFloat(b);
-};
-export const divide = (a, b) => {
-  console.log('divide()', a, '/', b, '=', parseFloat(a) / parseFloat(b));
-  return parseFloat(a) / parseFloat(b);
-};
+export const add = (a, b) => parseFloat(a) + parseFloat(b);
+export const subtract = (a, b) => parseFloat(a) - parseFloat(b);
+export const multiply = (a, b) => parseFloat(a) * parseFloat(b);
+export const divide = (a, b) => parseFloat(a) / parseFloat(b);
 
 export const deleteLast = (input) => (`${input}`.length !== 0 ? `${input}`.slice(0, -1) : input);
 
@@ -72,7 +60,5 @@ export const keyup = (e, addInput, removeInput, doOperation, doCalculation) => {
   // DELETE
   if (e?.code === 'Backspace' || e?.code === 'Delete') removeInput();
   // OPERATIONS, verification is also in doOperation in useStore.js
-  if (isValidOperator(e?.key)) {
-    doOperation(e.key);
-  }
+  if (isValidOperator(e?.key)) doOperation(e.key);
 };
