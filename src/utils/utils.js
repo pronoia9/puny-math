@@ -17,7 +17,7 @@ export const isValidNumber = (input) => !isNaN(parseFloat(input));
 export const isValidInput = (input) => !isNaN(parseFloat(input)) || input === '.';
 
 // VALIDATE OPERATOR
-export const isValidOperator = (operator) => operator === '+' || operator === '-' || operator === '/' || operator === '*';
+export const isValidOperator = (operator) => operator === '+' || operator === '-' || operator === '*' || operator === 'x' || operator === '/';
 
 // BASIC OPERATIONS
 export const add = (a, b) => `${parseFloat(a) + parseFloat(b)}`;
@@ -33,8 +33,9 @@ export const calculatePls = (operator, a, b) => {
   switch (operator) {
     case '+': return add(a, b);
     case '-': return subtract(a, b);
-    case '/': return divide(a, b);
     case '*': return multiply(a, b);
+    case 'x': return multiply(a, b);
+    case '/': return divide(a, b);
   }
 };
 
