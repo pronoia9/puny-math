@@ -43,22 +43,24 @@ const Title = styled.p`
   line-height: 1;
   letter-spacing: -0.5px;
   text-align: center;
+  align-self: self-end;
 `;
 
-const Switcher = styled.fieldset`
+const Switcher = styled.div`
   position: relative;
   padding-inline: 0;
   display: flex;
-  align-items: center;
   gap: 0.5rem;
   border: none;
   font-size: 1rem;
+  margin-right: 0.25rem;
+  margin-bottom: 0.5rem;
 
   &::before {
     content: '';
     position: absolute;
     left: 33%;
-    bottom: 11%;
+    bottom: calc(-16px * 0.25);
     width: 70%;
     height: 25px;
     background: var(--color-bg-keypad);
@@ -72,7 +74,7 @@ const SwitcherHeader = styled.p`
   text-transform: uppercase;
   font-size: 0.75rem;
   line-height: 1.1;
-  padding-top: calc(11% + 7px);
+  padding-top: calc(25px + 11%);
 `;
 
 const InputContainer = styled.div`
@@ -89,8 +91,8 @@ const InputLabel = styled.label`
 const Input = styled.input`
   opacity: 0;
   appearance: none;
-  width: 1em;
-  height: 1em;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   background: var(--color-key3-bg);
   transition: background 0.25s ease-in-out;
