@@ -50,7 +50,7 @@ const Switcher = styled.div`
   position: relative;
   padding-inline: 0;
   display: flex;
-  gap: 0.5rem;
+  gap: 0.75rem;
   border: none;
   font-size: 1rem;
   margin-right: 0.25rem;
@@ -59,10 +59,11 @@ const Switcher = styled.div`
   &::before {
     content: '';
     position: absolute;
-    left: 33%;
-    bottom: calc(-10%);
+    right: -0.25rem;
+    bottom: calc(-25px * 0.15);
+    /* width: calc(100% - 3rem - 0.36rem); */
     width: 70%;
-    height: 25px;
+    height: 1.5rem;
     background: var(--color-bg-keypad);
     border-radius: 20px;
     z-index: -1;
@@ -74,7 +75,9 @@ const SwitcherHeader = styled.p`
   text-transform: uppercase;
   font-size: 0.75rem;
   line-height: 1.1;
-  padding-top: calc(25px + 11%);
+  align-self: self-end;
+  position: relative;
+  left: -0.25rem;
 `;
 
 const InputContainer = styled.div`
@@ -91,11 +94,12 @@ const InputLabel = styled.label`
 const Input = styled.input`
   opacity: 0;
   appearance: none;
-  width: 16px;
-  height: 16px;
+  width: 1rem;
+  height: 1rem;
   border-radius: 50%;
   background: var(--color-key3-bg);
   transition: background 0.25s ease-in-out;
+  margin: 0;
 
   &:hover, &:focus {
     cursor: pointer;
