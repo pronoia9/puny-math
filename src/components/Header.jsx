@@ -60,7 +60,7 @@ const Switcher = styled.div`
     content: '';
     position: absolute;
     left: 33%;
-    bottom: calc(-16px * 0.25);
+    bottom: calc(-10%);
     width: 70%;
     height: 25px;
     background: var(--color-bg-keypad);
