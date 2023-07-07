@@ -37,6 +37,7 @@ const Button = styled.button`
   /* padding: 1rem 0.9rem 0.5rem 0.9rem; */
   padding: 0.9rem;
   color: var(--color-text-keys);
+  font-size: 1.5rem;
   font-weight: var(--font-weight);
   line-height: 1.1;
   border: none;
@@ -78,15 +79,17 @@ const Button = styled.button`
     }
   }
 
+  // DEL, =, RESET
   &:nth-child(4),
   &:nth-child(17),
   &:nth-child(18) {
-    /* font-size: 1.95rem; */
+    font-size: 1.95rem;
     font-size: 1.5rem;
   }
 
   @media screen and (min-width: 42rem) {
     font-size: 2.5rem;
+    
     &:nth-child(4),
     &:nth-child(17),
     &:nth-child(18) {
