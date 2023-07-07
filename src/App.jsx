@@ -44,7 +44,7 @@ const Container = styled.div`
 const Wrapper = styled.div`
   text-align: center;
   width: 100%;
-  padding: 1.7rem;
+  padding: 0 1.7rem !important;
   max-width: 37.25rem;
 
   @media screen and (min-width: 42rem) {
