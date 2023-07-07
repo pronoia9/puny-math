@@ -81,7 +81,8 @@ const Button = styled.button`
   &:nth-child(4),
   &:nth-child(17),
   &:nth-child(18) {
-    font-size: 1.95rem;
+    /* font-size: 1.95rem; */
+    font-size: 1.5rem;
   }
 
   @media screen and (min-width: 42rem) {
