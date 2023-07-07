@@ -101,6 +101,13 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  // Remove Scroll
+  *::-webkit-scrollbar {
+    display: none;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
   // Remove all animations, transitions and smooth scroll for people that prefer not to see them
   @media (prefers-reduced-motion: reduce) {
     html:focus-within {
